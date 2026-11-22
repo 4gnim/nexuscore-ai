@@ -1,0 +1,47 @@
+# Python & Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+.conda/
+
+# Secrets & Local Config
+.env
+.env.local
+*.pem
+*.key
+
+# Data Artifacts & Local Databases
+data/raw/*.csv
+data/cleaned/*.parquet
+data/curated/*.parquet
+data/dlq/*.json
+data/dlq/*.csv
+*.db
+*.sqlite
+*.sqlite3
+
+# MLflow & Model Artifacts
+mlruns/
+mlartifacts/
+models_registry/*.joblib
+models_registry/*.pkl
+models_registry/*.json
+
+# Logs & Testing
+logs/
+*.log
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

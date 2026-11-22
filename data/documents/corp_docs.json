@@ -1,0 +1,98 @@
+[
+  {
+    "doc_id": "DOC-001",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "Master Supply Agreement — FormosaSilicon Foundry Corp (SUP-001)",
+    "doc_type": "CONTRACT",
+    "effective_date": "2026-01-15",
+    "content": "ApexGlobal Manufacturing Corp maintains an exclusive volume tier agreement with FormosaSilicon Foundry Corp (SUP-001), headquartered in Hsinchu and shipping exclusively through Port of Kaohsiung. SUP-001 supplies 85% of SoC Neural Processor 5nm (CMP-001) and 75% of Multi-Layer RF PCB Substrate (CMP-005). Under Clause 14.2, if maritime transit from Port of Kaohsiung is delayed exceeding 10 calendar days due to port congestion or maritime exclusion zones, ApexGlobal is authorized to invoke dual-sourcing step-in rights and reallocate up to 60% of monthly volume to qualified backup supplier Hanbit Semiconductor Korea (SUP-002) for CMP-001 and Penang Precision Microelectronics (SUP-006) for CMP-005 without incurring volume shortfall penalties."
+  },
+  {
+    "doc_id": "DOC-002",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "Q4 Maritime & Geopolitical Risk Intelligence Bulletin — Taiwan Strait",
+    "doc_type": "RISK_INTELLIGENCE",
+    "effective_date": "2026-11-01",
+    "content": "Regional maritime telemetry indicates severe vessel queuing at Port of Kaohsiung with congestion index surging to 86.4/100 and average berth waiting times extending by 11 to 14 days. FormosaSilicon Foundry Corp (SUP-001) exports for SoC Neural Processor 5nm (CMP-001) and Multi-Layer RF PCB Substrate (CMP-005) face immediate schedule slippage. Furthermore, marine war-risk hull insurance surcharges on Taiwan Strait container routes have increased freight expenses by 38%."
+  },
+  {
+    "doc_id": "DOC-003",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "Senior Syndicated Credit Facility & Financial Debt Covenant Policy (COV-FIN-01)",
+    "doc_type": "FINANCIAL_POLICY",
+    "effective_date": "2026-03-01",
+    "content": "Under Section 7.1 of the Senior Credit Facility Agreement (Covenant ID: COV-FIN-01), ApexGlobal Manufacturing Corp must maintain a Consolidated Gross Margin of at least 28.0% measured quarterly across all manufacturing divisions. Any supply chain mitigation action—including expedited air freight, emergency spot buys, or high-tariff supplier switching—that compresses consolidated gross margin below 28.0% triggers a Technical Covenant Breach requiring immediate CFO and Supply Chain Director sign-off plus lender waiver notification."
+  },
+  {
+    "doc_id": "DOC-004",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "SOP-SC-04: Emergency Air-Freight & Backup Supplier Activation Protocol",
+    "doc_type": "SOP",
+    "effective_date": "2026-04-10",
+    "content": "Standard Operating Procedure SOP-SC-04 governs emergency procurement interventions when warehouse days-of-supply at primary assembly hub WH-ID falls below 6.0 days for CRITICAL components (CMP-001, CMP-003, CMP-005). Section 4.3 mandates that any emergency mitigation package whose total incremental cost (air-freight premium + unit price variance + tariff delta) exceeds USD 50,000.00 MUST be routed to the Human-in-the-Loop (HITL) approval queue for explicit authorization by a user holding the SupplyChainDirector role prior to ERP execution."
+  },
+  {
+    "doc_id": "DOC-005",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "Qualified Backup Supplier Technical & Capacity Audit — SUP-002 & SUP-006",
+    "doc_type": "AUDIT_REPORT",
+    "effective_date": "2026-06-20",
+    "content": "Quality Engineering completed full PPAP Level-3 qualification for Hanbit Semiconductor Korea (SUP-002, Port of Busan) as the primary backup for SoC Neural Processor 5nm (CMP-001) at an 8% unit cost premium (USD 156.60/unit vs USD 145.00/unit) with 16-day sea lead time or 3-day air transit. Penang Precision Microelectronics (SUP-006, Port of Tanjung Pelepas) is fully certified as backup for Industrial SiC MOSFET Power Stage (CMP-003) and Multi-Layer RF PCB Substrate (CMP-005) at a 4% unit cost premium and 11-day sea lead time."
+  },
+  {
+    "doc_id": "DOC-006",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "Cross-Border Semiconductor & Power Electronics Tariff Directive (TAR-2026-88)",
+    "doc_type": "REGULATORY",
+    "effective_date": "2026-09-15",
+    "content": "Trade Compliance Directive TAR-2026-88 imposes an additional 18.0% retaliatory customs duty on semiconductor wafers and RF PCB substrates (HS Codes 8542.31 and 8534.00) routed through non-FTA transshipment ports unless originating from ASEAN-RCEP or Korea-FTA certified fabs such as Hanbit Semiconductor Korea (SUP-002) or Penang Precision Microelectronics (SUP-006). Switching CMP-001 and CMP-005 orders to SUP-002 and SUP-006 avoids the 18.0% tariff surcharge."
+  },
+  {
+    "doc_id": "DOC-007",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "Supplier Financial Health & Credit Watch Bulletin — RheinMetallics GmbH (SUP-004)",
+    "doc_type": "RISK_INTELLIGENCE",
+    "effective_date": "2026-10-18",
+    "content": "Credit risk monitoring placed RheinMetallics Power GmbH (SUP-004, Port of Hamburg) on Elevated Credit Watch after its financial health score dropped from 84.0 to 61.0 due to European energy cost restructuring and short-term liquidity tightening. SUP-004 is the single-source primary supplier for Industrial SiC MOSFET Power Stage (CMP-003), which is essential for ApexPower Industrial Inverter 50kW (PRD-002), ApexGrid Smart Substation Controller (PRD-004), and ApexCore Robotic Servo Drive (PRD-005). Pre-emptive volume shifting of 40% to Penang Precision Microelectronics (SUP-006) is recommended."
+  },
+  {
+    "doc_id": "DOC-008",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "Product Line BOM Dependency & Margin Resilience Analysis (PRD-001 & PRD-002)",
+    "doc_type": "FINANCIAL_ANALYSIS",
+    "effective_date": "2026-10-25",
+    "content": "ApexEdge AI Gateway X9 (PRD-001, selling price USD 1,250, baseline gross margin 33.20%) consumes 2 units of CMP-001 and 2 units of CMP-005 per finished device, making it highly sensitive to disruptions at FormosaSilicon Foundry Corp (SUP-001). Meanwhile, ApexPower Industrial Inverter 50kW (PRD-002, selling price USD 2,400, baseline gross margin 30.00%) has only a 2.00 percentage point buffer above the COV-FIN-01 covenant floor of 28.0%. A combined spike in CMP-003 cost and air-freight charges on PRD-002 can push its product gross margin down to 25.4%, jeopardizing consolidated covenant compliance."
+  },
+  {
+    "doc_id": "DOC-009",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "SOP-LOG-09: Maritime Carrier Force Majeure & Port Rerouting Protocol",
+    "doc_type": "SOP",
+    "effective_date": "2026-05-12",
+    "content": "Under SOP-LOG-09, when Port of Kaohsiung or Port of Hamburg congestion index exceeds 75.0, Logistics Operations must split shipments into 70% sea freight via regional hub Port of Tanjung Pelepas or Port of Busan and 30% expedited air freight directly to WH-ID (Batam/Jakarta) to prevent assembly line stoppage while containing freight spend."
+  },
+  {
+    "doc_id": "DOC-010",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "ESG & Responsible Minerals Compliance Mandate (ESG-2026-03)",
+    "doc_type": "REGULATORY",
+    "effective_date": "2026-02-01",
+    "content": "Policy ESG-2026-03 prohibits procurement from any Tier-1 or Tier-2 supplier whose ESG compliance rating falls below 80.0 or lacks conflict-mineral traceability for LiFePO4 battery cells (CMP-002) and power semiconductors (CMP-003). All current qualified suppliers (SUP-001 through SUP-008) exceed the 80.0 threshold, with NipponOptics (SUP-003, 96.0) and RheinMetallics (SUP-004, 95.0) leading ESG governance."
+  },
+  {
+    "doc_id": "DOC-011",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "ASEAN Nearshoring & Capacity Expansion Memorandum — SUP-005 & SUP-008",
+    "doc_type": "STRATEGY_MEMO",
+    "effective_date": "2026-08-30",
+    "content": "To reduce trans-Pacific and East Asian chokepoint exposure, ApexGlobal expanded frame contracts with Saigon ElectroAssembly JSC (SUP-005, Vietnam) and Nusantara Precision Chassis PT (SUP-008, Indonesia). SUP-008 delivers Ruggedized Aluminum CNC Chassis (CMP-007) and Thermal Vapor Chamber Heatsink (CMP-010) to WH-ID within 7 days at 11% below global benchmark cost."
+  },
+  {
+    "doc_id": "DOC-012",
+    "tenant_id": "TENANT-APEX-GLOBAL",
+    "title": "Enterprise AI Governance, RBAC & Data Security Policy (GOV-SEC-01)",
+    "doc_type": "SECURITY_POLICY",
+    "effective_date": "2026-07-01",
+    "content": "Policy GOV-SEC-01 enforces strict Role-Based Access Control (RBAC) across NexusCore AI: Viewer role has read-only access to dashboards and public risk summaries; Analyst role may execute SQL analytics, ML risk scoring, and Monte Carlo simulations; SupplyChainDirector role holds exclusive authority to approve HITL mitigation packages above USD 50,000 and modify supplier allocation weights. All prompt inputs must pass adversarial injection inspection."
+  }
+]

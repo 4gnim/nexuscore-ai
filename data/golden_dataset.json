@@ -1,0 +1,108 @@
+[
+  {
+    "eval_id": "EVAL-001",
+    "question": "Jika Port of Kaohsiung mengalami kemacetan parah (indeks > 85), produk ApexGlobal mana saja yang terdampak melalui rantai pasok komponen, pemasok cadangan mana yang memenuhi syarat kontrak & bebas tarif tambahan TAR-2026-88, dan apakah biaya mitigasi memicu HITL?",
+    "expected_entities": [
+      "Port of Kaohsiung",
+      "FormosaSilicon Foundry Corp",
+      "CMP-001",
+      "CMP-005",
+      "PRD-001",
+      "PRD-003",
+      "PRD-004",
+      "PRD-006",
+      "Hanbit Semiconductor Korea",
+      "Penang Precision Microelectronics"
+    ],
+    "expected_citations": [
+      "DOC-001",
+      "DOC-002",
+      "DOC-004",
+      "DOC-005",
+      "DOC-006"
+    ],
+    "expected_hitl_required": true,
+    "expected_covenant_breach": false
+  },
+  {
+    "eval_id": "EVAL-002",
+    "question": "Evaluasi risiko kebangkrutan atau penurunan skor kesehatan finansial RheinMetallics Power GmbH (SUP-004) terhadap lini produk ApexPower Industrial Inverter 50kW (PRD-002) dan kepatuhan kovenan utang COV-FIN-01 jika dilakukan air-freight darurat.",
+    "expected_entities": [
+      "RheinMetallics Power GmbH",
+      "CMP-003",
+      "PRD-002",
+      "COV-FIN-01",
+      "Penang Precision Microelectronics"
+    ],
+    "expected_citations": [
+      "DOC-003",
+      "DOC-004",
+      "DOC-007",
+      "DOC-008"
+    ],
+    "expected_hitl_required": true,
+    "expected_covenant_breach": true
+  },
+  {
+    "eval_id": "EVAL-003",
+    "question": "Berapa hari sisa ketahanan stok (days of supply) untuk CMP-001 dan CMP-003 di gudang WH-ID saat ini, dan apakah sudah melanggar ambang batas darurat SOP-SC-04?",
+    "expected_entities": [
+      "CMP-001",
+      "CMP-003",
+      "WH-ID",
+      "SOP-SC-04"
+    ],
+    "expected_citations": [
+      "DOC-004"
+    ],
+    "expected_hitl_required": false,
+    "expected_covenant_breach": false
+  },
+  {
+    "eval_id": "EVAL-004",
+    "question": "Bandingkan profil biaya, lead time, dan skor ESG antara pemasok utama dan pemasok cadangan untuk komponen High-Density LiFePO4 Cell Module (CMP-002) berdasarkan ESG-2026-03.",
+    "expected_entities": [
+      "CMP-002",
+      "Saigon ElectroAssembly JSC",
+      "Hanbit Semiconductor Korea",
+      "ESG-2026-03"
+    ],
+    "expected_citations": [
+      "DOC-005",
+      "DOC-010",
+      "DOC-011"
+    ],
+    "expected_hitl_required": false,
+    "expected_covenant_breach": false
+  },
+  {
+    "eval_id": "EVAL-005",
+    "question": "Jalankan simulasi risiko keterlambatan pada pemasok dengan port_congestion_index tertinggi dan tentukan strategi split shipment sesuai SOP-LOG-09.",
+    "expected_entities": [
+      "Port of Kaohsiung",
+      "SOP-LOG-09",
+      "WH-ID"
+    ],
+    "expected_citations": [
+      "DOC-002",
+      "DOC-009"
+    ],
+    "expected_hitl_required": true,
+    "expected_covenant_breach": false
+  },
+  {
+    "eval_id": "EVAL-006",
+    "question": "Siapa role yang berwenang menyetujui paket mitigasi senilai USD 75,000 menurut kebijakan GOV-SEC-01 dan SOP-SC-04?",
+    "expected_entities": [
+      "SupplyChainDirector",
+      "GOV-SEC-01",
+      "SOP-SC-04"
+    ],
+    "expected_citations": [
+      "DOC-004",
+      "DOC-012"
+    ],
+    "expected_hitl_required": true,
+    "expected_covenant_breach": false
+  }
+]

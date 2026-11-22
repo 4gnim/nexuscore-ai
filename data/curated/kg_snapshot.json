@@ -1,0 +1,1579 @@
+{
+  "tenant_id": "TENANT-APEX-GLOBAL",
+  "total_entities": 65,
+  "total_relations": 98,
+  "provider_usage": {
+    "groq:qwen/qwen3.8-27b": 2,
+    "groq:openai/gpt-oss-120b": 9,
+    "gemini:gemini-3.6-flash": 1
+  },
+  "entities": [
+    {
+      "entity_id": "ENT-ORG-APEX",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "ApexGlobal Manufacturing Corp",
+      "entity_type": "ORGANIZATION",
+      "canonical_code": "APEX-GLOBAL",
+      "description": "Primary corporate entity maintaining supply agreements",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "entity_id": "ENT-SUP-001",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "FormosaSilicon Foundry Corp",
+      "entity_type": "SUPPLIER",
+      "canonical_code": "SUP-001",
+      "description": "Primary semiconductor foundry headquartered in Hsinchu",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "entity_id": "ENT-PORT-KAOHSIUNG",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Port of Kaohsiung",
+      "entity_type": "PORT_HUB",
+      "canonical_code": "PORT-KHH",
+      "description": "Exclusive shipping port for SUP-001",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "entity_id": "ENT-CMP-001",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "SoC Neural Processor 5nm",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-001",
+      "description": "Semiconductor component supplied by SUP-001",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "entity_id": "ENT-CMP-005",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Multi-Layer RF PCB Substrate",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-005",
+      "description": "PCB substrate component supplied by SUP-001",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "entity_id": "ENT-SUP-002",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Hanbit Semiconductor Korea",
+      "entity_type": "SUPPLIER",
+      "canonical_code": "SUP-002",
+      "description": "Qualified backup supplier for CMP-001",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "entity_id": "ENT-SUP-006",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Penang Precision Microelectronics",
+      "entity_type": "SUPPLIER",
+      "canonical_code": "SUP-006",
+      "description": "Qualified backup supplier for CMP-005",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "entity_id": "ENT-CONCEP-04BF34DA03",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Port Congestion",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Port Congestion",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "entity_id": "ENT-CONCEP-9DCDAB43AF",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Maritime Exclusion Zones",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Maritime Exclusion Zones",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "entity_id": "ENT-REGION-6ABE4997A1",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Taiwan Strait",
+      "entity_type": "REGION",
+      "canonical_code": null,
+      "description": "Strategic maritime corridor between Taiwan and mainland China",
+      "source_doc_id": "DOC-002"
+    },
+    {
+      "entity_id": "ENT-CONCEP-6ABE4997A1",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Taiwan Strait",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Taiwan Strait",
+      "source_doc_id": "DOC-002"
+    },
+    {
+      "entity_id": "ENT-CONTRA-ADA3A91A00",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Senior Credit Facility Agreement",
+      "entity_type": "CONTRACT",
+      "canonical_code": null,
+      "description": "Agreement governing the senior syndicated credit facility",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-POL-COV-FIN-01",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Financial Debt Covenant COV-FIN-01",
+      "entity_type": "POLICY",
+      "canonical_code": "COV-FIN-01",
+      "description": "Senior Syndicated Credit Facility & Financial Debt Covenant requiring a minimum Consolidated Gross Margin of 28.0%",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-METRIC-B8DEA7C3D1",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Consolidated Gross Margin",
+      "entity_type": "METRIC",
+      "canonical_code": null,
+      "description": "Quarterly gross margin across all manufacturing divisions",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-PERSON-E5B7445EC8",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "CFO",
+      "entity_type": "PERSON_ROLE",
+      "canonical_code": null,
+      "description": "Chief Financial Officer of ApexGlobal Manufacturing Corp",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-ROLE-DIRECTOR",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "SupplyChainDirector",
+      "entity_type": "ROLE",
+      "canonical_code": "ROLE-SCD",
+      "description": "Director responsible for supply chain operations",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-FINANC-615913447E",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Lender",
+      "entity_type": "FINANCIAL_INSTITUTION",
+      "canonical_code": null,
+      "description": "Entity providing the senior credit facility",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-ACTION-2F1723D0C3",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Expedited Air Freight",
+      "entity_type": "ACTION",
+      "canonical_code": null,
+      "description": "Supply chain mitigation action using fast air shipping",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-ACTION-545FD54914",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Emergency Spot Buys",
+      "entity_type": "ACTION",
+      "canonical_code": null,
+      "description": "Supply chain mitigation action involving urgent purchase of inventory",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-ACTION-E4B37CA52E",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "High-Tariff Supplier Switching",
+      "entity_type": "ACTION",
+      "canonical_code": null,
+      "description": "Supply chain mitigation action that switches to suppliers with higher tariffs",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-CONCEP-ADA3A91A00",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Senior Credit Facility Agreement",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Senior Credit Facility Agreement",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-CONCEP-E5B7445EC8",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "CFO",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "CFO",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-CONCEP-2F1723D0C3",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Expedited Air Freight",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Expedited Air Freight",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-CONCEP-545FD54914",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Emergency Spot Buys",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Emergency Spot Buys",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-CONCEP-E4B37CA52E",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "High-Tariff Supplier Switching",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "High-Tariff Supplier Switching",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "entity_id": "ENT-POL-SOP-SC-04",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Emergency Protocol SOP-SC-04",
+      "entity_type": "POLICY",
+      "canonical_code": "SOP-SC-04",
+      "description": "Emergency Air-Freight & Backup Supplier Activation Protocol",
+      "source_doc_id": "DOC-004"
+    },
+    {
+      "entity_id": "ENT-WH-ID",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Warehouse Hub Indonesia (WH-ID)",
+      "entity_type": "WAREHOUSE",
+      "canonical_code": "WH-ID",
+      "description": "Primary assembly hub",
+      "source_doc_id": "DOC-004"
+    },
+    {
+      "entity_id": "ENT-CMP-003",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Industrial SiC MOSFET Power Stage",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-003",
+      "description": "Critical component",
+      "source_doc_id": "DOC-004"
+    },
+    {
+      "entity_id": "ENT-PROCES-3A70F22C6C",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Human-in-the-Loop (HITL) approval queue",
+      "entity_type": "PROCESS",
+      "canonical_code": "HITL_QUEUE",
+      "description": "Approval queue for emergency mitigation packages",
+      "source_doc_id": "DOC-004"
+    },
+    {
+      "entity_id": "ENT-CONCEP-C7EA0EE40F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Emergency Procurement Interventions",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Emergency Procurement Interventions",
+      "source_doc_id": "DOC-004"
+    },
+    {
+      "entity_id": "ENT-PORT-BUSAN",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Port of Busan",
+      "entity_type": "PORT_HUB",
+      "canonical_code": "PORT-PUS",
+      "description": "Major South Korean seaport used for shipping SUP-002",
+      "source_doc_id": "DOC-005"
+    },
+    {
+      "entity_id": "ENT-PORT-PTP",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Port of Tanjung Pelepas",
+      "entity_type": "PORT_HUB",
+      "canonical_code": "PORT-PTP",
+      "description": "Malaysian seaport used for shipping SUP-006",
+      "source_doc_id": "DOC-005"
+    },
+    {
+      "entity_id": "ENT-POL-TAR-2026-88",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Tariff Directive TAR-2026-88",
+      "entity_type": "REGULATION",
+      "canonical_code": "TAR-2026-88",
+      "description": "Imposes an additional 18.0% retaliatory customs duty on semiconductor wafers and RF PCB substrates routed through non-FTA transshipment ports",
+      "source_doc_id": "DOC-006"
+    },
+    {
+      "entity_id": "ENT-SUP-004",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "RheinMetallics Power GmbH",
+      "entity_type": "SUPPLIER",
+      "canonical_code": "SUP-004",
+      "description": "Single-source primary supplier for Industrial SiC MOSFET Power Stage, placed on Elevated Credit Watch",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "entity_id": "ENT-PORT-HAMBURG",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Port of Hamburg",
+      "entity_type": "PORT_HUB",
+      "canonical_code": "PORT-HAM",
+      "description": "Port associated with RheinMetallics Power GmbH logistics",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "entity_id": "ENT-PRD-002",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "ApexPower Industrial Inverter 50kW",
+      "entity_type": "PRODUCT",
+      "canonical_code": "PRD-002",
+      "description": "Industrial inverter product utilizing CMP-003",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "entity_id": "ENT-PRD-004",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "ApexGrid Smart Substation Controller",
+      "entity_type": "PRODUCT",
+      "canonical_code": "PRD-004",
+      "description": "Smart substation controller product utilizing CMP-003",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "entity_id": "ENT-PRD-005",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "ApexCore Robotic Servo Drive",
+      "entity_type": "PRODUCT",
+      "canonical_code": "PRD-005",
+      "description": "Robotic servo drive product utilizing CMP-003",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "entity_id": "ENT-PRD-001",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "ApexEdge AI Gateway X9",
+      "entity_type": "PRODUCT",
+      "canonical_code": "PRD-001",
+      "description": "AI gateway device",
+      "source_doc_id": "DOC-008"
+    },
+    {
+      "entity_id": "ENT-POL-SOP-LOG-09",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Maritime Rerouting Protocol SOP-LOG-09",
+      "entity_type": "POLICY",
+      "canonical_code": "SOP-LOG-09",
+      "description": "Maritime Carrier Force Majeure & Port Rerouting Protocol",
+      "source_doc_id": "DOC-009"
+    },
+    {
+      "entity_id": "ENT-DEPART-04F39D6347",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Logistics Operations",
+      "entity_type": "DEPARTMENT",
+      "canonical_code": null,
+      "description": "Department responsible for executing rerouting protocols",
+      "source_doc_id": "DOC-009"
+    },
+    {
+      "entity_id": "ENT-CONCEP-04F39D6347",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Logistics Operations",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Logistics Operations",
+      "source_doc_id": "DOC-009"
+    },
+    {
+      "entity_id": "ENT-POL-ESG-2026-03",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "ESG Mandate ESG-2026-03",
+      "entity_type": "REGULATION",
+      "canonical_code": "ESG-2026-03",
+      "description": "Regulatory policy prohibiting procurement from suppliers with ESG rating below 80 or lacking conflict‑mineral traceability for specific components",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "entity_id": "ENT-SUP-003",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "NipponOptics & Sensorics Ltd",
+      "entity_type": "SUPPLIER",
+      "canonical_code": "SUP-003",
+      "description": "Tier‑1 supplier with ESG compliance rating 96.0, leading ESG governance",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "entity_id": "ENT-SUP-005",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Saigon ElectroAssembly JSC",
+      "entity_type": "SUPPLIER",
+      "canonical_code": "SUP-005",
+      "description": "Qualified Tier‑1/Tier‑2 supplier meeting ESG threshold",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "entity_id": "ENT-SUP-007",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "SiliconValley Photonics Inc",
+      "entity_type": "SUPPLIER",
+      "canonical_code": "SUP-007",
+      "description": "Qualified Tier‑1/Tier‑2 supplier meeting ESG threshold",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "entity_id": "ENT-SUP-008",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Nusantara Precision Chassis PT",
+      "entity_type": "SUPPLIER",
+      "canonical_code": "SUP-008",
+      "description": "Qualified Tier‑1/Tier‑2 supplier meeting ESG threshold",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "entity_id": "ENT-CMP-002",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "High-Density LiFePO4 Cell Module",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-002",
+      "description": "Component requiring conflict‑mineral traceability under ESG‑2026‑03",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "entity_id": "ENT-CMP-007",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Ruggedized Aluminum CNC Chassis",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-007",
+      "description": "Ruggedized Aluminum CNC Chassis",
+      "source_doc_id": "DOC-011"
+    },
+    {
+      "entity_id": "ENT-CMP-010",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Thermal Vapor Chamber Heatsink",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-010",
+      "description": "Thermal Vapor Chamber Heatsink",
+      "source_doc_id": "DOC-011"
+    },
+    {
+      "entity_id": "ENT-POL-GOV-SEC-01",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Security & RBAC Policy GOV-SEC-01",
+      "entity_type": "POLICY",
+      "canonical_code": "GOV-SEC-01",
+      "description": "Enterprise AI Governance, RBAC & Data Security Policy",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "entity_id": "ENT-ROLE-40B4F25B1F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Viewer",
+      "entity_type": "ROLE",
+      "canonical_code": null,
+      "description": "Read‑only access to dashboards and public risk summaries",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "entity_id": "ENT-ROLE-E366805D9F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Analyst",
+      "entity_type": "ROLE",
+      "canonical_code": null,
+      "description": "Can execute SQL analytics, ML risk scoring, and Monte Carlo simulations",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "entity_id": "ENT-SYSTEM-0AA8163C23",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "NexusCore AI",
+      "entity_type": "SYSTEM",
+      "canonical_code": null,
+      "description": "Enterprise AI platform subject to RBAC",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "entity_id": "ENT-OBJECT-69B3CB5F11",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "HITL mitigation package",
+      "entity_type": "OBJECT",
+      "canonical_code": null,
+      "description": "Human‑in‑the‑loop mitigation packages requiring approval for amounts > USD 50,000",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "entity_id": "ENT-CONCEP-40B4F25B1F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Viewer",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Viewer",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "entity_id": "ENT-CONCEP-E366805D9F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Analyst",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "Analyst",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "entity_id": "ENT-CONCEP-0AA8163C23",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "NexusCore AI",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "NexusCore AI",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "entity_id": "ENT-CONCEP-69B3CB5F11",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "HITL mitigation package",
+      "entity_type": "CONCEPT",
+      "canonical_code": null,
+      "description": "HITL mitigation package",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "entity_id": "ENT-CMP-004",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Precision MEMS Gyroscope Array",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-004",
+      "description": "Canonical master entity (CMP-004)",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "entity_id": "ENT-CMP-006",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Optical Transceiver Laser Diode",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-006",
+      "description": "Canonical master entity (CMP-006)",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "entity_id": "ENT-CMP-008",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Automotive Grade MLCC Capacitor Bank",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-008",
+      "description": "Canonical master entity (CMP-008)",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "entity_id": "ENT-CMP-009",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "Industrial Grade 3D NAND Flash 1TB",
+      "entity_type": "COMPONENT",
+      "canonical_code": "CMP-009",
+      "description": "Canonical master entity (CMP-009)",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "entity_id": "ENT-PRD-003",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "ApexVision Autonomous LiDAR Node",
+      "entity_type": "PRODUCT",
+      "canonical_code": "PRD-003",
+      "description": "Canonical master entity (PRD-003)",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "entity_id": "ENT-PRD-006",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "entity_name": "ApexSense Telemetry Hub",
+      "entity_type": "PRODUCT",
+      "canonical_code": "PRD-006",
+      "description": "Canonical master entity (PRD-006)",
+      "source_doc_id": "MASTER-ERP"
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "REL-C16ED25B815F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-001",
+      "predicate": "SHIPS_THROUGH",
+      "object_id": "ENT-PORT-KAOHSIUNG",
+      "confidence": 0.98,
+      "evidence_quote": "shipping exclusively through Port of Kaohsiung",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "relation_id": "REL-4A5BA83C4EE2",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-001",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-CMP-001",
+      "confidence": 0.95,
+      "evidence_quote": "SUP-001 supplies 85% of SoC Neural Processor 5nm (CMP-001)",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "relation_id": "REL-E3690F78A3B9",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-001",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-CMP-005",
+      "confidence": 0.95,
+      "evidence_quote": "75% of Multi-Layer RF PCB Substrate (CMP-005)",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "relation_id": "REL-240E1E962B2E",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-002",
+      "predicate": "BACKUP_FOR",
+      "object_id": "ENT-CMP-001",
+      "confidence": 0.92,
+      "evidence_quote": "reallocate up to 60% of monthly volume to qualified backup supplier Hanbit Semiconductor Korea (SUP-002) for CMP-001",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "relation_id": "REL-FC7178959BD2",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "BACKUP_FOR",
+      "object_id": "ENT-CMP-005",
+      "confidence": 0.92,
+      "evidence_quote": "and Penang Precision Microelectronics (SUP-006) for CMP-005",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "relation_id": "REL-456A3C26D9FB",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-PORT-KAOHSIUNG",
+      "predicate": "EXPOSED_TO_RISK",
+      "object_id": "ENT-CONCEP-04BF34DA03",
+      "confidence": 0.85,
+      "evidence_quote": "delayed exceeding 10 calendar days due to port congestion",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "relation_id": "REL-2A2BAEA505D5",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-PORT-KAOHSIUNG",
+      "predicate": "EXPOSED_TO_RISK",
+      "object_id": "ENT-CONCEP-9DCDAB43AF",
+      "confidence": 0.85,
+      "evidence_quote": "due to port congestion or maritime exclusion zones",
+      "source_doc_id": "DOC-001"
+    },
+    {
+      "relation_id": "REL-7E40632E269D",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-001",
+      "predicate": "EXPOSED_TO_RISK",
+      "object_id": "ENT-CONCEP-6ABE4997A1",
+      "confidence": 0.9,
+      "evidence_quote": "Marine war-risk hull insurance surcharges on Taiwan Strait container routes have increased freight expenses by 38%.",
+      "source_doc_id": "DOC-002"
+    },
+    {
+      "relation_id": "REL-A5777F0456F4",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-POL-COV-FIN-01",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-CONCEP-ADA3A91A00",
+      "confidence": 0.99,
+      "evidence_quote": "Under Section 7.1 of the Senior Credit Facility Agreement (Covenant ID: COV-FIN-01)...",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "relation_id": "REL-FCD565938402",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-POL-COV-FIN-01",
+      "predicate": "REQUIRES_APPROVAL_FROM",
+      "object_id": "ENT-CONCEP-E5B7445EC8",
+      "confidence": 0.99,
+      "evidence_quote": "...triggers a Technical Covenant Breach requiring immediate CFO and Supply Chain Director sign-off...",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "relation_id": "REL-B992D3656CD1",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-POL-COV-FIN-01",
+      "predicate": "REQUIRES_APPROVAL_FROM",
+      "object_id": "ENT-ROLE-DIRECTOR",
+      "confidence": 0.99,
+      "evidence_quote": "...triggers a Technical Covenant Breach requiring immediate CFO and Supply Chain Director sign-off...",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "relation_id": "REL-5AE12FC7B104",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-2F1723D0C3",
+      "predicate": "TRIGGERS_BREACH",
+      "object_id": "ENT-POL-COV-FIN-01",
+      "confidence": 0.98,
+      "evidence_quote": "Any supply chain mitigation action—including expedited air freight...that compresses consolidated gross margin below 28.0% triggers a Technical Covenant Breach...",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "relation_id": "REL-EF3CB420985F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-545FD54914",
+      "predicate": "TRIGGERS_BREACH",
+      "object_id": "ENT-POL-COV-FIN-01",
+      "confidence": 0.98,
+      "evidence_quote": "Any supply chain mitigation action—including ... emergency spot buys...that compresses consolidated gross margin below 28.0% triggers a Technical Covenant Breach...",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "relation_id": "REL-9CE609836A4F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-E4B37CA52E",
+      "predicate": "TRIGGERS_BREACH",
+      "object_id": "ENT-POL-COV-FIN-01",
+      "confidence": 0.98,
+      "evidence_quote": "Any supply chain mitigation action—including ... high-tariff supplier switching...that compresses consolidated gross margin below 28.0% triggers a Technical Covenant Breach...",
+      "source_doc_id": "DOC-003"
+    },
+    {
+      "relation_id": "REL-B79FD2228918",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-POL-SOP-SC-04",
+      "predicate": "REQUIRES_APPROVAL_FROM",
+      "object_id": "ENT-ROLE-DIRECTOR",
+      "confidence": 1.0,
+      "evidence_quote": "MUST be routed to the Human-in-the-Loop (HITL) approval queue for explicit authorization by a user holding the SupplyChainDirector role",
+      "source_doc_id": "DOC-004"
+    },
+    {
+      "relation_id": "REL-F69F013EEDE3",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-POL-SOP-SC-04",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-CONCEP-C7EA0EE40F",
+      "confidence": 0.95,
+      "evidence_quote": "Standard Operating Procedure SOP-SC-04 governs emergency procurement interventions",
+      "source_doc_id": "DOC-004"
+    },
+    {
+      "relation_id": "REL-032E9A4DFE42",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-002",
+      "predicate": "SHIPS_THROUGH",
+      "object_id": "ENT-PORT-BUSAN",
+      "confidence": 0.98,
+      "evidence_quote": "Hanbit Semiconductor Korea (SUP-002, Port of Busan)",
+      "source_doc_id": "DOC-005"
+    },
+    {
+      "relation_id": "REL-DB95A7D793A6",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "BACKUP_FOR",
+      "object_id": "ENT-CMP-003",
+      "confidence": 0.99,
+      "evidence_quote": "Penang Precision Microelectronics (SUP-006, Port of Tanjung Pelepas) is fully certified as backup for Industrial SiC MOSFET Power Stage (CMP-003)",
+      "source_doc_id": "DOC-005"
+    },
+    {
+      "relation_id": "REL-831EDD2E1157",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "SHIPS_THROUGH",
+      "object_id": "ENT-PORT-PTP",
+      "confidence": 0.98,
+      "evidence_quote": "Penang Precision Microelectronics (SUP-006, Port of Tanjung Pelepas)",
+      "source_doc_id": "DOC-005"
+    },
+    {
+      "relation_id": "REL-A21928460EEA",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-POL-TAR-2026-88",
+      "predicate": "EXEMPTS_TARIFF",
+      "object_id": "ENT-SUP-002",
+      "confidence": 0.97,
+      "evidence_quote": "unless originating from ... Korea-FTA certified fabs such as Hanbit Semiconductor Korea (SUP-002)",
+      "source_doc_id": "DOC-006"
+    },
+    {
+      "relation_id": "REL-255E94ED0087",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-POL-TAR-2026-88",
+      "predicate": "EXEMPTS_TARIFF",
+      "object_id": "ENT-SUP-006",
+      "confidence": 0.97,
+      "evidence_quote": "unless originating from ... ASEAN-RCEP certified fabs such as Penang Precision Microelectronics (SUP-006)",
+      "source_doc_id": "DOC-006"
+    },
+    {
+      "relation_id": "REL-67E389799DDE",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-002",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-CMP-001",
+      "confidence": 0.94,
+      "evidence_quote": "Switching CMP-001 ... orders to SUP-002 ... avoids the 18.0% tariff surcharge",
+      "source_doc_id": "DOC-006"
+    },
+    {
+      "relation_id": "REL-19F3645693F2",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-CMP-005",
+      "confidence": 0.94,
+      "evidence_quote": "Switching ... CMP-005 orders to SUP-006 ... avoids the 18.0% tariff surcharge",
+      "source_doc_id": "DOC-006"
+    },
+    {
+      "relation_id": "REL-E20282F8469C",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-004",
+      "predicate": "SHIPS_THROUGH",
+      "object_id": "ENT-PORT-HAMBURG",
+      "confidence": 0.95,
+      "evidence_quote": "RheinMetallics Power GmbH (SUP-004, Port of Hamburg)",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "relation_id": "REL-941EF09F2369",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-004",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-CMP-003",
+      "confidence": 0.99,
+      "evidence_quote": "SUP-004 is the single-source primary supplier for Industrial SiC MOSFET Power Stage (CMP-003)",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "relation_id": "REL-7CF868B95ECF",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-003",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-002",
+      "confidence": 0.98,
+      "evidence_quote": "Industrial SiC MOSFET Power Stage (CMP-003), which is essential for ApexPower Industrial Inverter 50kW (PRD-002)",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "relation_id": "REL-72A087E9A8E4",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-003",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-004",
+      "confidence": 0.98,
+      "evidence_quote": "Industrial SiC MOSFET Power Stage (CMP-003), which is essential for... ApexGrid Smart Substation Controller (PRD-004)",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "relation_id": "REL-DA5A78778834",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-003",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-005",
+      "confidence": 0.98,
+      "evidence_quote": "Industrial SiC MOSFET Power Stage (CMP-003), which is essential for... ApexCore Robotic Servo Drive (PRD-005)",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "relation_id": "REL-E0F5ECA4D861",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "BACKUP_FOR",
+      "object_id": "ENT-SUP-004",
+      "confidence": 0.9,
+      "evidence_quote": "Pre-emptive volume shifting of 40% to Penang Precision Microelectronics (SUP-006) is recommended.",
+      "source_doc_id": "DOC-007"
+    },
+    {
+      "relation_id": "REL-613FE9942E71",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-001",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-001",
+      "confidence": 0.96,
+      "evidence_quote": "consumes 2 units of CMP-001 ... per finished device",
+      "source_doc_id": "DOC-008"
+    },
+    {
+      "relation_id": "REL-C65E057EEE42",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-005",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-001",
+      "confidence": 0.96,
+      "evidence_quote": "consumes 2 units of CMP-005 ... per finished device",
+      "source_doc_id": "DOC-008"
+    },
+    {
+      "relation_id": "REL-AD6922507664",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-PRD-001",
+      "predicate": "EXPOSED_TO_RISK",
+      "object_id": "ENT-SUP-001",
+      "confidence": 0.97,
+      "evidence_quote": "highly sensitive to disruptions at FormosaSilicon Foundry Corp (SUP-001)",
+      "source_doc_id": "DOC-008"
+    },
+    {
+      "relation_id": "REL-397DD998E5E3",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-PRD-002",
+      "predicate": "EXPOSED_TO_RISK",
+      "object_id": "ENT-POL-COV-FIN-01",
+      "confidence": 0.95,
+      "evidence_quote": "has only a 2.00 percentage point buffer above the COV-FIN-01 covenant floor of 28.0%",
+      "source_doc_id": "DOC-008"
+    },
+    {
+      "relation_id": "REL-C043E1F7EF23",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-POL-SOP-LOG-09",
+      "predicate": "GOVERNS",
+      "object_id": "ENT-PORT-KAOHSIUNG",
+      "confidence": 0.95,
+      "evidence_quote": "Under SOP-LOG-09, when Port of Kaohsiung or Port of Hamburg congestion index exceeds 75.0",
+      "source_doc_id": "DOC-009"
+    },
+    {
+      "relation_id": "REL-5118E49CB634",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-POL-SOP-LOG-09",
+      "predicate": "GOVERNS",
+      "object_id": "ENT-PORT-HAMBURG",
+      "confidence": 0.95,
+      "evidence_quote": "Under SOP-LOG-09, when Port of Kaohsiung or Port of Hamburg congestion index exceeds 75.0",
+      "source_doc_id": "DOC-009"
+    },
+    {
+      "relation_id": "REL-9D0771659F4A",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-04F39D6347",
+      "predicate": "EXECUTES",
+      "object_id": "ENT-POL-SOP-LOG-09",
+      "confidence": 0.98,
+      "evidence_quote": "Logistics Operations must split shipments",
+      "source_doc_id": "DOC-009"
+    },
+    {
+      "relation_id": "REL-B7D5A0BD99E5",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-04F39D6347",
+      "predicate": "REROUTES_VIA",
+      "object_id": "ENT-PORT-PTP",
+      "confidence": 0.92,
+      "evidence_quote": "split shipments into 70% sea freight via regional hub Port of Tanjung Pelepas",
+      "source_doc_id": "DOC-009"
+    },
+    {
+      "relation_id": "REL-526D5BB682F2",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-04F39D6347",
+      "predicate": "REROUTES_VIA",
+      "object_id": "ENT-PORT-BUSAN",
+      "confidence": 0.92,
+      "evidence_quote": "split shipments into 70% sea freight via regional hub Port of Tanjung Pelepas or Port of Busan",
+      "source_doc_id": "DOC-009"
+    },
+    {
+      "relation_id": "REL-AED6873EB168",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-04F39D6347",
+      "predicate": "SHIPS_THROUGH",
+      "object_id": "ENT-WH-ID",
+      "confidence": 0.95,
+      "evidence_quote": "30% expedited air freight directly to WH-ID (Batam/Jakarta)",
+      "source_doc_id": "DOC-009"
+    },
+    {
+      "relation_id": "REL-C29CA7873A7E",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-001",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.99,
+      "evidence_quote": "All current qualified suppliers (SUP-001 through SUP-008) exceed the 80.0 threshold",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-A0DAC4FF7988",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-002",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.99,
+      "evidence_quote": "All current qualified suppliers (SUP-001 through SUP-008) exceed the 80.0 threshold",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-7DDCC25E1E2B",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-003",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.99,
+      "evidence_quote": "NipponOptics (SUP-003, 96.0) leading ESG governance",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-057B5200C17D",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-004",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.99,
+      "evidence_quote": "RheinMetallics (SUP-004, 95.0) leading ESG governance",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-BCEA0C54A507",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-005",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.99,
+      "evidence_quote": "All current qualified suppliers (SUP-001 through SUP-008) exceed the 80.0 threshold",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-4C9CAB419D62",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.99,
+      "evidence_quote": "All current qualified suppliers (SUP-001 through SUP-008) exceed the 80.0 threshold",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-F08221338540",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-007",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.99,
+      "evidence_quote": "All current qualified suppliers (SUP-001 through SUP-008) exceed the 80.0 threshold",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-F563455E3AAD",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-008",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.99,
+      "evidence_quote": "All current qualified suppliers (SUP-001 through SUP-008) exceed the 80.0 threshold",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-E6778A267550",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-002",
+      "predicate": "EXPOSED_TO_RISK",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.95,
+      "evidence_quote": "lacks conflict-mineral traceability for LiFePO4 battery cells (CMP-002) ... under policy ESG-2026-03",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-C0DCCC94307B",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-003",
+      "predicate": "EXPOSED_TO_RISK",
+      "object_id": "ENT-POL-ESG-2026-03",
+      "confidence": 0.95,
+      "evidence_quote": "lacks conflict-mineral traceability for ... power semiconductors (CMP-003) ... under policy ESG-2026-03",
+      "source_doc_id": "DOC-010"
+    },
+    {
+      "relation_id": "REL-DCC0F8D5CF0E",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-005",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-ORG-APEX",
+      "confidence": 0.98,
+      "evidence_quote": "expanded frame contracts with Saigon ElectroAssembly JSC (SUP-005, Vietnam)",
+      "source_doc_id": "DOC-011"
+    },
+    {
+      "relation_id": "REL-8FA639B341A5",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-008",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-ORG-APEX",
+      "confidence": 0.98,
+      "evidence_quote": "expanded frame contracts with Nusantara Precision Chassis PT (SUP-008, Indonesia)",
+      "source_doc_id": "DOC-011"
+    },
+    {
+      "relation_id": "REL-FA2CE3A7232A",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-008",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-CMP-007",
+      "confidence": 0.97,
+      "evidence_quote": "SUP-008 delivers Ruggedized Aluminum CNC Chassis (CMP-007)",
+      "source_doc_id": "DOC-011"
+    },
+    {
+      "relation_id": "REL-22031F075E68",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-008",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-CMP-010",
+      "confidence": 0.97,
+      "evidence_quote": "SUP-008 delivers Thermal Vapor Chamber Heatsink (CMP-010)",
+      "source_doc_id": "DOC-011"
+    },
+    {
+      "relation_id": "REL-004312C7EC52",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-008",
+      "predicate": "SUPPLIES",
+      "object_id": "ENT-WH-ID",
+      "confidence": 0.96,
+      "evidence_quote": "delivers ... to WH-ID within 7 days at 11% below global benchmark cost",
+      "source_doc_id": "DOC-011"
+    },
+    {
+      "relation_id": "REL-5E8E9E8BEBDD",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-40B4F25B1F",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-GOV-SEC-01",
+      "confidence": 0.99,
+      "evidence_quote": "Viewer role has read-only access to dashboards and public risk summaries",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "relation_id": "REL-AA1BA8474F0C",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-E366805D9F",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-GOV-SEC-01",
+      "confidence": 0.99,
+      "evidence_quote": "Analyst role may execute SQL analytics, ML risk scoring, and Monte Carlo simulations",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "relation_id": "REL-1448CEB97E4A",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-ROLE-DIRECTOR",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-GOV-SEC-01",
+      "confidence": 0.99,
+      "evidence_quote": "SupplyChainDirector role holds exclusive authority to approve HITL mitigation packages above USD 50,000",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "relation_id": "REL-F007FE8E0FA1",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-0AA8163C23",
+      "predicate": "GOVERNED_BY",
+      "object_id": "ENT-POL-GOV-SEC-01",
+      "confidence": 0.98,
+      "evidence_quote": "Policy GOV-SEC-01 enforces strict Role‑Based Access Control (RBAC) across NexusCore AI",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "relation_id": "REL-92B06061153F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CONCEP-69B3CB5F11",
+      "predicate": "REQUIRES_APPROVAL_FROM",
+      "object_id": "ENT-ROLE-DIRECTOR",
+      "confidence": 0.97,
+      "evidence_quote": "SupplyChainDirector role holds exclusive authority to approve HITL mitigation packages above USD 50,000",
+      "source_doc_id": "DOC-012"
+    },
+    {
+      "relation_id": "REL-FE9302CAFAB7",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-001",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-001",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-001 is primary supplier for CMP-001",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-8D7B9287E22F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-002",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-001",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-002 is qualified backup supplier for CMP-001",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-9F78EA96C030",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-005",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-002",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-005 is primary supplier for CMP-002",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-E373E817174B",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-002",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-002",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-002 is qualified backup supplier for CMP-002",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-F83DD6399A5A",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-004",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-003",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-004 is primary supplier for CMP-003",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-8FA634031D33",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-003",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-006 is qualified backup supplier for CMP-003",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-0AB57E88C66B",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-003",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-004",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-003 is primary supplier for CMP-004",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-E03A64CAD59E",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-007",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-004",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-007 is qualified backup supplier for CMP-004",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-5F7E0F1164F5",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-001",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-005",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-001 is primary supplier for CMP-005",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-B9BFCDD7FB2B",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-005",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-006 is qualified backup supplier for CMP-005",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-0C300322670C",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-007",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-006",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-007 is primary supplier for CMP-006",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-0EC08F3A9115",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-003",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-006",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-003 is qualified backup supplier for CMP-006",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-EA73E03F6EAB",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-008",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-007",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-008 is primary supplier for CMP-007",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-C124BCD5BDA8",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-005",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-007",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-005 is qualified backup supplier for CMP-007",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-196EF2CB4A6D",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-003",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-008",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-003 is primary supplier for CMP-008",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-4B0873982EB2",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-008",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-006 is qualified backup supplier for CMP-008",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-C4A0A5E7F025",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-002",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-009",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-002 is primary supplier for CMP-009",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-B4A150B248FB",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-006",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-009",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-006 is qualified backup supplier for CMP-009",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-3B1D8C4BAA8A",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-008",
+      "predicate": "PRIMARY_SUPPLIER_OF",
+      "object_id": "ENT-CMP-010",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-008 is primary supplier for CMP-010",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-B5D1DFF2235A",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-SUP-005",
+      "predicate": "BACKUP_SUPPLIER_FOR",
+      "object_id": "ENT-CMP-010",
+      "confidence": 1.0,
+      "evidence_quote": "SUP-005 is qualified backup supplier for CMP-010",
+      "source_doc_id": "MASTER-ERP"
+    },
+    {
+      "relation_id": "REL-B57205AD52EA",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-009",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-001",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-009 is required (2 units) in BOM of PRD-001",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-3F6353E7E4E6",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-007",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-001",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-007 is required (1 units) in BOM of PRD-001",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-B67A121500AA",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-010",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-001",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-010 is required (1 units) in BOM of PRD-001",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-C1DED5364398",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-002",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-002",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-002 is required (4 units) in BOM of PRD-002",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-59D6313AA470",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-008",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-002",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-008 is required (6 units) in BOM of PRD-002",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-DE81AA04403B",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-007",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-002",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-007 is required (2 units) in BOM of PRD-002",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-CD1C99FE53BA",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-001",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-003",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-001 is required (1 units) in BOM of PRD-003",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-BDAF9C4314AA",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-004",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-003",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-004 is required (3 units) in BOM of PRD-003",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-7F84B6FCCFB8",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-006",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-003",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-006 is required (2 units) in BOM of PRD-003",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-D77E7F0CE720",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-007",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-003",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-007 is required (1 units) in BOM of PRD-003",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-85E414F3A68B",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-005",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-004",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-005 is required (2 units) in BOM of PRD-004",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-42866E749D4F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-009",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-004",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-009 is required (1 units) in BOM of PRD-004",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-E9729309DB39",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-008",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-004",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-008 is required (4 units) in BOM of PRD-004",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-9CAAD6AB3E9F",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-004",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-005",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-004 is required (2 units) in BOM of PRD-005",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-2C959FFC1763",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-010",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-005",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-010 is required (1 units) in BOM of PRD-005",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-0B607BE19AB0",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-005",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-006",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-005 is required (1 units) in BOM of PRD-006",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-BD31C5D067A2",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-008",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-006",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-008 is required (3 units) in BOM of PRD-006",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-9AE2FE767BC3",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-009",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-006",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-009 is required (1 units) in BOM of PRD-006",
+      "source_doc_id": "MASTER-BOM"
+    },
+    {
+      "relation_id": "REL-3B7FE11E2637",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "subject_id": "ENT-CMP-007",
+      "predicate": "USED_IN_PRODUCT",
+      "object_id": "ENT-PRD-006",
+      "confidence": 1.0,
+      "evidence_quote": "CMP-007 is required (1 units) in BOM of PRD-006",
+      "source_doc_id": "MASTER-BOM"
+    }
+  ]
+}
