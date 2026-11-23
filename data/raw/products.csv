@@ -1,0 +1,7 @@
+product_id,tenant_id,product_name,product_line,selling_price_usd,standard_cogs_usd,gross_margin_pct,monthly_demand_units
+PRD-001,TENANT-APEX-GLOBAL,ApexEdge AI Gateway X9,Edge Computing,1250.0,835.0,33.2,3200
+PRD-002,TENANT-APEX-GLOBAL,ApexPower Industrial Inverter 50kW,Clean Energy Grid,2400.0,1680.0,30.0,1500
+PRD-003,TENANT-APEX-GLOBAL,ApexVision Autonomous LiDAR Node,Industrial Robotics,1680.0,1125.0,33.04,2100
+PRD-004,TENANT-APEX-GLOBAL,ApexGrid Smart Substation Controller,Clean Energy Grid,1950.0,1345.0,31.03,1800
+PRD-005,TENANT-APEX-GLOBAL,ApexCore Robotic Servo Drive,Industrial Robotics,980.0,665.0,32.14,2900
+PRD-006,TENANT-APEX-GLOBAL,ApexSense Telemetry Hub,Edge Computing,720.0,475.0,34.03,4100

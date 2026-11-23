@@ -1,0 +1,9 @@
+supplier_id,tenant_id,supplier_name,country,port_hub,tier,financial_health_score,geopolitical_risk_index,esg_score,contracted_lead_time_days,unit_cost_multiplier,monthly_capacity_units,is_approved_backup
+SUP-001,TENANT-APEX-GLOBAL,FormosaSilicon Foundry Corp,Taiwan,Port of Kaohsiung,Tier-1,88.5,74.0,91.0,18,1.0,50000,True
+SUP-002,TENANT-APEX-GLOBAL,Hanbit Semiconductor Korea,South Korea,Port of Busan,Tier-1,92.0,38.0,94.0,16,1.08,45000,True
+SUP-003,TENANT-APEX-GLOBAL,NipponOptics & Sensorics Ltd,Japan,Port of Yokohama,Tier-1,94.5,22.0,96.0,14,1.12,35000,True
+SUP-004,TENANT-APEX-GLOBAL,RheinMetallics Power GmbH,Germany,Port of Hamburg,Tier-1,61.0,25.0,95.0,24,1.18,25000,False
+SUP-005,TENANT-APEX-GLOBAL,Saigon ElectroAssembly JSC,Vietnam,Port of Cat Lai,Tier-2,79.0,34.0,82.0,12,0.92,60000,True
+SUP-006,TENANT-APEX-GLOBAL,Penang Precision Microelectronics,Malaysia,Port of Tanjung Pelepas,Tier-1,86.0,28.0,89.0,11,1.04,48000,True
+SUP-007,TENANT-APEX-GLOBAL,SiliconValley Photonics Inc,United States,Port of Los Angeles,Tier-1,90.0,20.0,93.0,21,1.22,22000,True
+SUP-008,TENANT-APEX-GLOBAL,Nusantara Precision Chassis PT,Indonesia,Port of Tanjung Priok,Tier-2,84.0,26.0,87.0,7,0.89,70000,True

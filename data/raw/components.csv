@@ -1,0 +1,11 @@
+component_id,tenant_id,component_name,category,primary_supplier_id,backup_supplier_id,criticality,standard_unit_cost_usd,hs_code,base_tariff_pct
+CMP-001,TENANT-APEX-GLOBAL,SoC Neural Processor 5nm,Semiconductors,SUP-001,SUP-002,CRITICAL,145.0,8542.31,5.0
+CMP-002,TENANT-APEX-GLOBAL,High-Density LiFePO4 Cell Module,Energy Storage,SUP-005,SUP-002,HIGH,210.0,8507.60,7.5
+CMP-003,TENANT-APEX-GLOBAL,Industrial SiC MOSFET Power Stage,Power Electronics,SUP-004,SUP-006,CRITICAL,98.0,8541.29,4.0
+CMP-004,TENANT-APEX-GLOBAL,Precision MEMS Gyroscope Array,Sensors,SUP-003,SUP-007,HIGH,64.0,9031.80,3.5
+CMP-005,TENANT-APEX-GLOBAL,Multi-Layer RF PCB Substrate,Interconnects,SUP-001,SUP-006,CRITICAL,42.0,8534.00,6.0
+CMP-006,TENANT-APEX-GLOBAL,Optical Transceiver Laser Diode,Optoelectronics,SUP-007,SUP-003,HIGH,115.0,8541.41,4.5
+CMP-007,TENANT-APEX-GLOBAL,Ruggedized Aluminum CNC Chassis,Mechanical,SUP-008,SUP-005,MEDIUM,36.0,7616.99,2.0
+CMP-008,TENANT-APEX-GLOBAL,Automotive Grade MLCC Capacitor Bank,Passives,SUP-003,SUP-006,MEDIUM,18.5,8532.24,2.5
+CMP-009,TENANT-APEX-GLOBAL,Industrial Grade 3D NAND Flash 1TB,Memory,SUP-002,SUP-006,HIGH,55.0,8523.51,3.0
+CMP-010,TENANT-APEX-GLOBAL,Thermal Vapor Chamber Heatsink,Thermal,SUP-008,SUP-005,LOW,24.0,8419.50,2.0

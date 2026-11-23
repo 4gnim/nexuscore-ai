@@ -16,22 +16,13 @@ ENV/
 *.pem
 *.key
 
-# Data Artifacts & Local Databases
-data/raw/*.csv
-data/cleaned/*.parquet
-data/curated/*.parquet
-data/dlq/*.json
-data/dlq/*.csv
+# Local SQLite & MLflow Artifact Dirs
 *.db
 *.sqlite
 *.sqlite3
-
-# MLflow & Model Artifacts
 mlruns/
 mlartifacts/
-models_registry/*.joblib
-models_registry/*.pkl
-models_registry/*.json
+models_registry/mlartifacts/
 
 # Logs & Testing
 logs/

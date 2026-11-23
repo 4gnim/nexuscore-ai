@@ -1,0 +1,25 @@
+{
+  "trained_at": "2026-11-22T16:14:48.234781+00:00",
+  "mlflow_tracking_uri": "sqlite:///D:/Projects/Python/LLM/nexuscore-ai/models_registry/mlflow.db",
+  "training_rows_shipments": 601,
+  "training_rows_stockout": 750,
+  "metrics": {
+    "delay_classifier": {
+      "pr_auc": 0.7116,
+      "roc_auc": 0.905,
+      "f1_score": 0.5946,
+      "precision": 0.6471,
+      "recall": 0.55
+    },
+    "delay_regressor": {
+      "mae_days": 0.4953,
+      "rmse_days": 0.7662,
+      "r2_score": 0.4852
+    },
+    "stockout_classifier": {
+      "pr_auc": 0.9987,
+      "roc_auc": 0.9984,
+      "f1_score": 0.9762
+    }
+  }
+}

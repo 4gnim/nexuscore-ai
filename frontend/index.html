@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexusCore AI — Enterprise Supply Chain Intelligence &amp; Resilience Platform</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@14.1.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
+</head>
+<body data-mode="executive" data-theme="light">
+  <!-- TOP NAVIGATION BAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <div class="brand-meta">
+          <span class="brand-name">NexusCore AI</span>
+          <span class="brand-divider" aria-hidden="true">/</span>
+          <span class="brand-context">ApexGlobal Manufacturing</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Executive vs Engineering View Switcher -->
+        <div class="segmented-control" role="group" aria-label="Mode Tampilan">
+          <button type="button" class="mode-btn active" data-view-mode="executive" aria-pressed="true">
+            Executive View
+          </button>
+          <button type="button" class="mode-btn" data-view-mode="engineering" aria-pressed="false">
+            Engineering View
+          </button>
+        </div>
+
+        <!-- Optional Theme Toggle -->
+        <button type="button" id="themeToggleBtn" class="btn btn-ghost btn-sm" title="Ubah Tema Terang / Gelap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span id="themeToggleLabel">Dark</span>
+        </button>
+
+        <!-- Demo Session Settings Popover -->
+        <div class="popover-anchor">
+          <button type="button" id="sessionSettingsBtn" class="btn btn-secondary btn-sm" aria-expanded="false" aria-controls="sessionSettingsPanel">
+            Role: <strong id="activeRoleBadge">Analyst</strong>
+          </button>
+
+          <div id="sessionSettingsPanel" class="popover-card hidden" role="region" aria-label="Demo Session Settings">
+            <div class="popover-head">
+              <strong>Demo Session Settings</strong>
+              <button type="button" id="closeSessionPanelBtn" class="icon-btn" aria-label="Tutup">&times;</button>
+            </div>
+            <p class="popover-desc">
+              Pengaturan tenant dan role berikut berfungsi untuk menguji isolasi data dan kebijakan otorisasi backend (<code>GOV-SEC-01</code>), bukan pengganti autentikasi produksi.
+            </p>
+            <div class="field-group">
+              <label for="tenantSelect">Tenant Scope</label>
+              <select id="tenantSelect">
+                <option value="TENANT-APEX-GLOBAL" selected>TENANT-APEX-GLOBAL</option>
+                <option value="TENANT-UNAUTHORIZED-TEST">TENANT-UNAUTHORIZED (Isolation Test)</option>
+              </select>
+            </div>
+            <div class="field-group" style="margin-top: 12px;">
+              <label for="roleSelect">Simulated RBAC Role</label>
+              <select id="roleSelect">
+                <option value="Analyst" selected>Analyst (USR-ANA-01)</option>
+                <option value="SupplyChainDirector">SupplyChainDirector (USR-DIR-01)</option>
+                <option value="Viewer">Viewer (USR-VIEW-01)</option>
+                <option value="Admin">Admin (USR-ADM-01)</option>
+              </select>
+            </div>
+            <button type="button" id="refreshOverviewBtn" class="btn btn-secondary btn-sm full-width" style="margin-top: 16px;">
+              Sinkronkan Ulang Data
+            </button>
+          </div>
+        </div>
+
+        <!-- GitHub Repository Link -->
+        <a href="https://github.com/4gnim/nexuscore-ai" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Primary Sub-Navigation -->
+    <div class="subnav-wrap">
+      <nav class="subnav" aria-label="Navigasi Workspace">
+        <button type="button" class="tab-btn active" data-tab="tab-overview">
+          <span class="exec-only">Overview &amp; Risk Analysis</span>
+          <span class="eng-only">Agent Observability &amp; GraphRAG</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="tab-graph">
+          <span class="exec-only">Supply Chain Graph</span>
+          <span class="eng-only">Knowledge Graph Explorer</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="tab-sim">
+          <span class="exec-only">Scenario Simulator</span>
+          <span class="eng-only">Monte Carlo Simulator</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="tab-governance">
+          <span class="exec-only">Approvals &amp; Audit</span>
+          <span class="eng-only">HITL Queue &amp; SHA-256 Ledger</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div id="globalAlertBanner" class="toast-banner hidden" role="alert"></div>
+
+    <!-- ======================================================================= -->
+    <!-- TAB 1: OVERVIEW (EXECUTIVE VIEW) & OBSERVABILITY (ENGINEERING VIEW)     -->
+    <!-- ======================================================================= -->
+    <section id="tab-overview" class="tab-panel active">
+
+      <!-- ************************* EXECUTIVE VIEW ************************* -->
+      <div class="exec-only">
+        <!-- 1. Page Title & Dataset Context -->
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Supply Chain Resilience &amp; Risk Intelligence</h1>
+            <p class="page-subtitle">
+              Analisis risiko rantai pasok, proyeksi dampak margin, dan rekomendasi mitigasi strategis untuk <strong>ApexGlobal Manufacturing Corp</strong>.
+            </p>
+          </div>
+          <span class="context-pill">Hub Utama: WH-ID &bull; Studi Kasus Simulasi</span>
+        </div>
+
+        <!-- 2. Critical Supply Chain Alert (Rendered dynamically from actual backend data) -->
+        <div id="criticalSupplyAlert" class="critical-strip hidden" role="status">
+          <div class="critical-strip-body">
+            <span class="status-dot dot-danger" aria-hidden="true"></span>
+            <p id="criticalSupplyAlertText"></p>
+          </div>
+          <button type="button" id="jumpToInvestigateBtn" class="btn btn-secondary btn-sm">Analisis Dampak</button>
+        </div>
+
+        <!-- 3. Primary KPI Summary -->
+        <section class="kpi-row" aria-label="Ringkasan Metrik Utama">
+          <div class="metric-box">
+            <div class="metric-head">
+              <span class="metric-label">Risiko Kehabisan Stok</span>
+              <span class="info-tip" tabindex="0" data-tip="Komponen kritis di gudang WH-ID dengan cakupan stok di bawah 6,0 hari (SOP-SC-04).">i</span>
+            </div>
+            <div class="metric-num text-danger" id="kpiSopAlerts">-</div>
+            <div class="metric-foot">Komponen di bawah batas aman</div>
+          </div>
+
+          <div class="metric-box">
+            <div class="metric-head">
+              <span class="metric-label">Menunggu Persetujuan</span>
+              <span class="info-tip" tabindex="0" data-tip="Rekomendasi mitigasi > USD 50.000 yang memerlukan otorisasi SupplyChainDirector (HITL).">i</span>
+            </div>
+            <div class="metric-num text-warning" id="kpiPendingHitl">-</div>
+            <div class="metric-foot">Keputusan strategis &gt; USD 50.000</div>
+          </div>
+
+          <div class="metric-box">
+            <div class="metric-head">
+              <span class="metric-label">Batas Minimum Margin</span>
+              <span class="info-tip" tabindex="0" data-tip="Batas minimum Gross Margin 28,0% sesuai perjanjian pembiayaan COV-FIN-01.">i</span>
+            </div>
+            <div class="metric-num" id="kpiCovenantFloor">28.0%</div>
+            <div class="metric-foot">Standar kepatuhan finansial</div>
+          </div>
+
+          <div class="metric-box">
+            <div class="metric-head">
+              <span class="metric-label">Integritas Catatan Audit</span>
+              <span class="info-tip" tabindex="0" data-tip="Verifikasi rantai hash SHA-256 pada seluruh log keputusan dan akses sistem.">i</span>
+            </div>
+            <div class="metric-num text-success" id="kpiAuditStatus">MEMERIKSA</div>
+            <div class="metric-foot" id="kpiAuditCount">0 catatan terverifikasi</div>
+          </div>
+        </section>
+
+        <!-- 4. Investigation & Scenario Selection -->
+        <section class="surface-card section-gap" id="investigateSection">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Investigasi Skenario Gangguan</h2>
+              <p class="section-desc">Pilih skenario studi kasus atau masukkan pertanyaan bisnis spesifik untuk mengevaluasi dampak operasional dan finansial.</p>
+            </div>
+          </div>
+
+          <div class="scenario-selector" role="group" aria-label="Pilihan Skenario Bisnis">
+            <button type="button" class="scenario-pill active" data-preset="kaohsiung">
+              <div class="pill-top">
+                <span class="pill-title">Disrupsi Pelabuhan Kaohsiung</span>
+                <span class="tag tag-danger">High Risk</span>
+              </div>
+              <p class="pill-text">Kemacetan pelabuhan &gt; 85 pada pasokan chip 5nm (CMP-001) &amp; evaluasi pemasok bebas tarif.</p>
+            </button>
+
+            <button type="button" class="scenario-pill" data-preset="covenant">
+              <div class="pill-top">
+                <span class="pill-title">Risiko Pemasok &amp; Margin</span>
+                <span class="tag tag-warning">Margin Watch</span>
+              </div>
+              <p class="pill-text">Keterlambatan komponen daya (CMP-003) terhadap batas margin minimum 28,0% (COV-FIN-01).</p>
+            </button>
+
+            <button type="button" class="scenario-pill" data-preset="asean">
+              <div class="pill-top">
+                <span class="pill-title">Nearshoring Baterai ASEAN</span>
+                <span class="tag tag-neutral">Strategic</span>
+              </div>
+              <p class="pill-text">Kesiapan kapasitas cadangan modul LiFePO4 (CMP-002) di WH-ID &amp; kepatuhan ESG.</p>
+            </button>
+
+            <button type="button" class="scenario-pill" data-preset="injection">
+              <div class="pill-top">
+                <span class="pill-title">Uji Keamanan Guardrail</span>
+                <span class="tag tag-neutral">Security</span>
+              </div>
+              <p class="pill-text">Simulasi percobaan manipulasi instruksi AI dan injeksi perintah database.</p>
+            </button>
+          </div>
+
+          <div class="composer-box">
+            <label for="queryInput" class="sr-only">Pertanyaan Investigasi Rantai Pasok</label>
+            <textarea id="queryInput" rows="3" placeholder="Tuliskan pertanyaan analisis risiko rantai pasok Anda di sini...">Jika Port of Kaohsiung mengalami kemacetan parah > 85, produk ApexGlobal mana saja yang terdampak, pemasok cadangan mana yang bebas tarif TAR-2026-88, dan apakah biaya mitigasi memicu HITL?</textarea>
+            <div class="composer-footer">
+              <div class="status-area">
+                <span id="streamStatusText" class="helper-text">AI akan mengevaluasi data inventori, hubungan pemasok, proyeksi biaya, dan kepatuhan kebijakan.</span>
+                <div id="sseProgressBar" class="progress-bar hidden" aria-hidden="true">
+                  <div class="progress-bar-fill"></div>
+                </div>
+              </div>
+              <button type="button" id="runSwarmBtn" class="btn btn-primary">
+                <span id="runSwarmSpinner" class="spinner hidden" aria-hidden="true"></span>
+                <span id="runSwarmLabel">Analyze Supply Chain Risk</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Executive Decision Brief (Structured Executive Summary + Dynamic Charts + Expandable Sections) -->
+        <section class="surface-card section-gap" id="decisionBriefSection">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Executive Decision Brief</h2>
+              <p class="section-desc">Ringkasan keputusan strategis berbasis bukti dokumen kontrak, model prediktif, dan simulasi risiko.</p>
+            </div>
+            <div id="briefActionGroup" class="action-row hidden">
+              <button type="button" id="copyReportBtn" class="btn btn-secondary btn-sm">Copy Report</button>
+              <button type="button" id="downloadReportBtn" class="btn btn-secondary btn-sm">Download (.md)</button>
+            </div>
+          </div>
+
+          <!-- Compact Empty State before first run -->
+          <div id="briefEmptyState" class="compact-empty">
+            <p>Belum ada laporan yang dibuat. Pilih skenario di atas dan klik <strong>Analyze Supply Chain Risk</strong> untuk menyusun ringkasan keputusan eksekutif.</p>
+          </div>
+
+          <!-- Populated Decision Brief after run -->
+          <div id="briefResultContainer" class="hidden">
+            <!-- A. Primary Executive Summary Snapshot (Visible immediately without scrolling) -->
+            <div class="exec-summary-card" aria-label="Ringkasan Keputusan Utama">
+              <div class="exec-summary-top">
+                <div>
+                  <span class="summary-eyebrow">LAPORAN INVESTIGASI STRATEGIS</span>
+                  <h3 id="execSummaryTitle" class="summary-heading">-</h3>
+                </div>
+                <span id="execSummaryRiskBadge" class="tag tag-neutral">-</span>
+              </div>
+
+              <div class="exec-summary-grid">
+                <div class="summary-block">
+                  <span class="summary-label">Ringkasan Masalah</span>
+                  <p id="execSummaryProblem" class="summary-copy">-</p>
+                </div>
+                <div class="summary-block">
+                  <span class="summary-label">Dampak Bisnis Utama</span>
+                  <p id="execSummaryImpact" class="summary-copy">-</p>
+                </div>
+                <div class="summary-block">
+                  <span class="summary-label">Rekomendasi AI</span>
+                  <p id="execSummaryRecommendation" class="summary-copy">-</p>
+                </div>
+                <div class="summary-block">
+                  <span class="summary-label">Persetujuan Manusia (HITL)</span>
+                  <p id="execSummaryApproval" class="summary-copy">-</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="hitlQuickBox" class="inline-notice warning hidden"></div>
+
+            <!-- B. Dynamic AI-Generated Visual Insights (Shown only when backend quantitative data qualifies) -->
+            <div id="aiVisualInsightsSection" class="visual-insights-block hidden">
+              <div class="visual-insights-head">
+                <div>
+                  <h3 class="subsection-title">AI-Generated Visual Insights</h3>
+                  <p class="section-desc">Visualisasi kuantitatif berdasarkan hasil investigasi AI dan data operasional perusahaan.</p>
+                </div>
+                <span class="tag tag-neutral">Actual Backend Metrics</span>
+              </div>
+              <div id="aiVisualChartsGrid" class="visual-charts-grid"></div>
+            </div>
+
+            <!-- C. Compact Report Table of Contents & Expand/Collapse Controls -->
+            <div class="report-nav-bar">
+              <div class="report-toc-wrap">
+                <span class="toc-label">Daftar Isi Laporan:</span>
+                <nav id="reportTocNav" class="toc-pills" aria-label="Navigasi Bagian Laporan"></nav>
+              </div>
+              <div class="action-row">
+                <button type="button" id="expandAllSectionsBtn" class="btn btn-ghost btn-sm">Buka Semua</button>
+                <button type="button" id="collapseDetailSectionsBtn" class="btn btn-ghost btn-sm">Ringkas Detail</button>
+              </div>
+            </div>
+
+            <!-- D. Expandable Detailed Analysis Accordions -->
+            <div id="reportAccordionContainer" class="report-accordion-stack"></div>
+          </div>
+        </section>
+
+        <!-- 6. Supporting Inventory Overview (Secondary Visual Weight) -->
+        <section class="section-gap">
+          <div class="section-head" style="margin-bottom: 12px;">
+            <div>
+              <h2 class="section-title">Kondisi Inventori Komponen Utama (WH-ID)</h2>
+              <p class="section-desc">Informasi pendukung cakupan stok harian dan probabilitas keterlambatan pasokan saat ini.</p>
+            </div>
+          </div>
+          <div class="surface-card no-pad">
+            <div class="table-scroll">
+              <table class="clean-table">
+                <thead>
+                  <tr>
+                    <th>Komponen</th>
+                    <th>Cakupan Stok</th>
+                    <th>Probabilitas Keterlambatan</th>
+                    <th>Probabilitas Stockout</th>
+                    <th>Status Operasional</th>
+                  </tr>
+                </thead>
+                <tbody id="whInventoryBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ************************* ENGINEERING VIEW ************************* -->
+      <div class="eng-only">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Multi-Agent &amp; Hybrid GraphRAG Observability</h1>
+            <p class="page-subtitle">
+              Telemetri eksekusi LangGraph parallel workers, RRF retrieval scores, jalur penalaran NetworkX, dan hasil evaluasi Monte Carlo / XGBoost.
+            </p>
+          </div>
+          <div class="telemetry-badges">
+            <span class="mono-badge">LangGraph Send API</span>
+            <span class="mono-badge">Qdrant Dense+BM25 RRF</span>
+            <span class="mono-badge">XGBoost + MonteCarlo(1000)</span>
+          </div>
+        </div>
+
+        <!-- Engineering Query & Execution Trigger (Synced with Executive View) -->
+        <div class="surface-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Swarm Execution Console (SSE Stream)</h2>
+              <p class="section-desc">Jalankan kueri investigasi untuk mengamati eksekusi paralel worker, verifikasi Red-Team Critic, dan metrik GraphRAG secara real-time.</p>
+            </div>
+            <div class="quick-preset-row">
+              <button type="button" class="btn btn-ghost btn-sm eng-preset-btn" data-preset="kaohsiung">Preset: Kaohsiung</button>
+              <button type="button" class="btn btn-ghost btn-sm eng-preset-btn" data-preset="covenant">Preset: COV-FIN-01</button>
+              <button type="button" class="btn btn-ghost btn-sm eng-preset-btn" data-preset="asean">Preset: ASEAN ESG</button>
+              <button type="button" class="btn btn-ghost btn-sm eng-preset-btn" data-preset="injection">Preset: Injection Test</button>
+            </div>
+          </div>
+
+          <div class="composer-box">
+            <label for="engQueryInput" class="sr-only">Swarm Prompt Input</label>
+            <textarea id="engQueryInput" rows="2" placeholder="Masukkan prompt investigasi teknis...">Jika Port of Kaohsiung mengalami kemacetan parah > 85, produk ApexGlobal mana saja yang terdampak, pemasok cadangan mana yang bebas tarif TAR-2026-88, dan apakah biaya mitigasi memicu HITL?</textarea>
+            <div class="composer-footer">
+              <span id="engStreamStatus" class="mono-status">STATUS: IDLE &bull; Endpoint: POST /api/investigate/stream</span>
+              <button type="button" id="engRunSwarmBtn" class="btn btn-primary btn-sm">
+                <span id="engRunSwarmSpinner" class="spinner hidden" aria-hidden="true"></span>
+                <span id="engRunSwarmLabel">Execute Swarm Pipeline</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Visual 6-Node LangGraph Pipeline Topology -->
+          <div class="pipeline-strip" id="engPipelineStages" aria-label="LangGraph Pipeline Stages">
+            <div class="pipe-node" data-stage="Meta-Planner Agent">
+              <span class="pipe-step">01</span>
+              <div>
+                <strong>Meta-Planner</strong>
+                <span class="pipe-sub">Intent &amp; Parallel Dispatch</span>
+              </div>
+            </div>
+            <div class="pipe-node" data-stage="Graph Investigator Worker">
+              <span class="pipe-step">02A</span>
+              <div>
+                <strong>Graph Investigator</strong>
+                <span class="pipe-sub">NetworkX + Qdrant RRF</span>
+              </div>
+            </div>
+            <div class="pipe-node" data-stage="ML & SQL Data Scientist Worker">
+              <span class="pipe-step">02B</span>
+              <div>
+                <strong>ML &amp; SQL Scientist</strong>
+                <span class="pipe-sub">XGBoost + Monte Carlo</span>
+              </div>
+            </div>
+            <div class="pipe-node" data-stage="Risk & Compliance Auditor Worker">
+              <span class="pipe-step">02C</span>
+              <div>
+                <strong>Compliance Auditor</strong>
+                <span class="pipe-sub">SOP-SC-04 &amp; COV-FIN-01</span>
+              </div>
+            </div>
+            <div class="pipe-node" data-stage="Adversarial Red-Team Critic">
+              <span class="pipe-step">03</span>
+              <div>
+                <strong>Red-Team Critic</strong>
+                <span class="pipe-sub">Quantitative Fact Audit</span>
+              </div>
+            </div>
+            <div class="pipe-node" data-stage="Executive Synthesizer">
+              <span class="pipe-step">04</span>
+              <div>
+                <strong>Synthesizer</strong>
+                <span class="pipe-sub">Brief + Cytoscape + Chart</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Observability 2-Column Split: Live Trace & GraphRAG Evidence -->
+        <div class="obs-grid section-gap">
+          <!-- Left: Live Agent Execution Trace -->
+          <div class="surface-card">
+            <div class="section-head">
+              <div>
+                <h2 class="section-title">Live Agent Execution Trace</h2>
+                <p class="section-desc">Log peristiwa tiap node LangGraph beserta latensi tahap &amp; routing model/provider.</p>
+              </div>
+              <span id="engTraceCountBadge" class="mono-badge">0 events</span>
+            </div>
+            <div id="engTraceTimeline" class="trace-timeline">
+              <div class="compact-empty">Jalankan pipeline untuk melihat trace eksekusi real-time tiap worker.</div>
+            </div>
+          </div>
+
+          <!-- Right: Hybrid GraphRAG Metrics & Retrieval Evidence -->
+          <div class="surface-card">
+            <div class="section-head">
+              <div>
+                <h2 class="section-title">Hybrid GraphRAG &amp; Retrieval Evidence</h2>
+                <p class="section-desc">Skor Reciprocal Rank Fusion (RRF) dokumen &amp; lintasan multi-hop NetworkX.</p>
+              </div>
+              <span id="engGraphStatsBadge" class="mono-badge">Subgraph Ready</span>
+            </div>
+
+            <div id="engShortestPathsBox" class="eng-subblock">
+              <h3 class="mini-heading">Multi-Hop Reasoning Paths (NetworkX)</h3>
+              <ul id="engShortestPathsList" class="mono-list">
+                <li class="muted">Belum ada traversal kueri dijalankan.</li>
+              </ul>
+            </div>
+
+            <div class="eng-subblock" style="margin-top: 16px;">
+              <h3 class="mini-heading">Retrieved Evidence &amp; RRF Scores</h3>
+              <div class="table-scroll">
+                <table class="clean-table">
+                  <thead>
+                    <tr>
+                      <th>Doc ID</th>
+                      <th>Tipe</th>
+                      <th>Judul Dokumen</th>
+                      <th>RRF Score</th>
+                    </tr>
+                  </thead>
+                  <tbody id="engCitationsBody">
+                    <tr><td colspan="4" class="muted">Menunggu hasil retrieval...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engineering Bottom: Simulation Matrix & XGBoost Predictions -->
+        <div class="obs-grid section-gap">
+          <div class="surface-card">
+            <div class="section-head">
+              <div>
+                <h2 class="section-title">Strategy Optimization &amp; Monte Carlo Output</h2>
+                <p class="section-desc">Evaluasi utilitas ketahanan, biaya P50/P95, dan batas kovenan.</p>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <table class="clean-table">
+                <thead>
+                  <tr>
+                    <th>Strategy ID</th>
+                    <th>Utility</th>
+                    <th>P50 Cost</th>
+                    <th>P95 VaR</th>
+                    <th>Margin</th>
+                    <th>HITL</th>
+                  </tr>
+                </thead>
+                <tbody id="engStrategiesBody">
+                  <tr><td colspan="6" class="muted">Jalankan investigasi untuk melihat evaluasi strategi.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="surface-card">
+            <div class="section-head">
+              <div>
+                <h2 class="section-title">XGBoost Risk Inference &amp; Ledger Head</h2>
+                <p class="section-desc">Prediksi probabilitas keterlambatan &amp; stockout komponen di WH-ID.</p>
+              </div>
+              <span id="engHeadHashBadge" class="mono-badge">SHA-256: -</span>
+            </div>
+            <div class="table-scroll">
+              <table class="clean-table">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>DoS (Net)</th>
+                    <th>Delay Prob</th>
+                    <th>Stockout Prob</th>
+                    <th>SOP-SC-04</th>
+                  </tr>
+                </thead>
+                <tbody id="engInventoryBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- TAB 2: GRAPH EXPLORER (DECLUTTERED INTERACTIVE CYTOSCAPE)               -->
+    <!-- ======================================================================= -->
+    <section id="tab-graph" class="tab-panel">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Supply Chain Knowledge Graph</h1>
+          <p class="page-subtitle">
+            Eksplorasi keterkaitan pemasok, komponen, produk, pelabuhan, dan kebijakan perusahaan. Klik entitas atau relasi untuk inspeksi detail.
+          </p>
+        </div>
+        <div class="action-row">
+          <button type="button" id="zoomInGraphBtn" class="btn btn-secondary btn-sm" title="Perbesar">+</button>
+          <button type="button" id="zoomOutGraphBtn" class="btn btn-secondary btn-sm" title="Perkecil">&minus;</button>
+          <button type="button" id="fitGraphBtn" class="btn btn-secondary btn-sm">Fit View</button>
+          <button type="button" id="resetGraphBtn" class="btn btn-secondary btn-sm">Reset</button>
+        </div>
+      </div>
+
+      <div class="surface-card">
+        <!-- Filter Bar -->
+        <div class="graph-filter-bar">
+          <div class="field-group">
+            <label for="graphSearchInput">Cari Entitas / Kode</label>
+            <input type="text" id="graphSearchInput" placeholder="Cari SUP-001, Kaohsiung, CMP-001..." />
+          </div>
+          <div class="field-group">
+            <label for="graphTypeFilter">Tipe Entitas</label>
+            <select id="graphTypeFilter">
+              <option value="ALL" selected>Semua Tipe Entitas</option>
+              <option value="SUPPLIER">Supplier (Pemasok)</option>
+              <option value="COMPONENT">Component (Komponen)</option>
+              <option value="PRODUCT">Product (Produk)</option>
+              <option value="PORT_HUB">Port Hub (Pelabuhan)</option>
+              <option value="POLICY">Policy / Covenant</option>
+              <option value="REGULATION">Regulation / Tariff</option>
+              <option value="WAREHOUSE">Warehouse Hub</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="graphRelationFilter">Jenis Relasi</label>
+            <select id="graphRelationFilter">
+              <option value="ALL" selected>Semua Relasi</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="graphLayoutSelect">Algoritma Tata Letak</label>
+            <select id="graphLayoutSelect">
+              <option value="cose" selected>Force-Directed (COSE)</option>
+              <option value="concentric">Concentric (PageRank)</option>
+              <option value="breadthfirst">Hierarchical Tree</option>
+              <option value="circle">Circular</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Compact Legend -->
+        <div class="legend-strip" aria-label="Legenda Warna Node">
+          <span class="legend-chip"><i class="swatch" style="background:#38bdf8;"></i>Supplier</span>
+          <span class="legend-chip"><i class="swatch" style="background:#818cf8;"></i>Component</span>
+          <span class="legend-chip"><i class="swatch" style="background:#34d399;"></i>Product</span>
+          <span class="legend-chip"><i class="swatch" style="background:#fbbf24;"></i>Port Hub</span>
+          <span class="legend-chip"><i class="swatch" style="background:#fb7185;"></i>Policy / Tariff</span>
+          <span class="legend-chip"><i class="swatch" style="background:#2dd4bf;"></i>Warehouse / Org</span>
+          <span class="legend-hint">Label relasi muncul saat node/edge dipilih atau di-hover agar graf tetap bersih.</span>
+        </div>
+
+        <!-- Canvas + Inspector -->
+        <div class="graph-workspace">
+          <div class="cy-frame">
+            <div id="cyContainer" class="cy-canvas" role="img" aria-label="Graf Ketergantungan Rantai Pasok"></div>
+            <div id="graphTooltip" class="cy-tooltip hidden"></div>
+          </div>
+
+          <aside class="inspector-panel">
+            <h2 class="mini-heading">Node &amp; Relation Inspector</h2>
+            <div id="nodeInspector" class="inspector-body">
+              Pilih salah satu node atau garis relasi pada kanvas untuk melihat kode kanonik, skor sentralitas PageRank, sumber dokumen, dan daftar relasinya.
+            </div>
+
+            <div class="hairline"></div>
+            <h2 class="mini-heading">Entitas Paling Berpengaruh (PageRank)</h2>
+            <ul id="pagerankList" class="rank-list"></ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- TAB 3: SCENARIO SIMULATOR (WHAT-IF MONTE CARLO)                         -->
+    <!-- ======================================================================= -->
+    <section id="tab-sim" class="tab-panel">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">What-If Business Scenario Simulator</h1>
+          <p class="page-subtitle">
+            Simulasi stokastik 1.000 iterasi Monte Carlo untuk menguji sensitivitas biaya logistik dan ketahanan gross margin terhadap gangguan operasional.
+          </p>
+        </div>
+        <span id="mcIterationNote" class="context-pill">1.000 Iterasi Stokastik &bull; Seed Deterministik</span>
+      </div>
+
+      <div class="sim-layout">
+        <!-- Left: Parameters -->
+        <div class="surface-card">
+          <h2 class="section-title">Parameter Skenario</h2>
+          <p class="section-desc">Sesuaikan asumsi operasional di bawah untuk menghitung ulang distribusi risiko.</p>
+
+          <div class="slider-stack">
+            <div class="field-group">
+              <label for="simComponent">Target Komponen</label>
+              <select id="simComponent">
+                <option value="CMP-001" selected>CMP-001 — SoC Neural Processor 5nm (SUP-001)</option>
+                <option value="CMP-003">CMP-003 — Industrial SiC MOSFET Power Stage (SUP-004)</option>
+                <option value="CMP-002">CMP-002 — High-Density LiFePO4 Cell Module (SUP-005)</option>
+                <option value="CMP-005">CMP-005 — Multi-Layer RF PCB Substrate (SUP-001)</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <div class="range-head">
+                <label for="simCongestion">Indeks Kemacetan Pelabuhan</label>
+                <span class="range-val" id="valCongestion">86.4</span>
+              </div>
+              <input type="range" id="simCongestion" min="10" max="100" step="0.5" value="86.4" />
+              <span class="field-note">Skala kepadatan pelabuhan (0–100). Indeks &gt; 75 meningkatkan risiko keterlambatan kapal.</span>
+            </div>
+
+            <div class="field-group">
+              <div class="range-head">
+                <label for="simTariff">Tambahan Tarif Bea Cukai</label>
+                <span class="range-val" id="valTariff">18.0%</span>
+              </div>
+              <input type="range" id="simTariff" min="0" max="45" step="0.5" value="18.0" />
+              <span class="field-note">Persentase bea impor tambahan untuk pemasok di luar perjanjian bebas tarif.</span>
+            </div>
+
+            <div class="field-group">
+              <div class="range-head">
+                <label for="simBackupShare">Alokasi Pemasok Cadangan</label>
+                <span class="range-val" id="valBackup">60%</span>
+              </div>
+              <input type="range" id="simBackupShare" min="0" max="100" step="5" value="60" />
+              <span class="field-note">Porsi volume pengadaan yang dialihkan ke pemasok cadangan terkualifikasi.</span>
+            </div>
+
+            <div class="field-group">
+              <div class="range-head">
+                <label for="simAirShare">Porsi Pengiriman Udara Darurat</label>
+                <span class="range-val" id="valAir">30%</span>
+              </div>
+              <input type="range" id="simAirShare" min="0" max="100" step="5" value="30" />
+              <span class="field-note">Porsi pengiriman melalui kargo udara untuk menekan defisit stok lini produksi.</span>
+            </div>
+          </div>
+
+          <button type="button" id="runSimBtn" class="btn btn-primary full-width" style="margin-top: 24px;">
+            Jalankan Simulasi 1.000 Skenario
+          </button>
+        </div>
+
+        <!-- Right: Results & Histogram -->
+        <div class="surface-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Hasil Proyeksi Finansial &amp; Operasional</h2>
+              <p class="section-desc">Distribusi persentil biaya tambahan (P50 &amp; P95 VaR) serta kepatuhan margin minimum 28,0%.</p>
+            </div>
+            <span id="simCovenantBadge" class="tag tag-success">Margin Aman</span>
+          </div>
+
+          <div class="sim-kpi-grid">
+            <div class="sim-stat">
+              <span class="stat-label">Median Estimated Cost (P50)</span>
+              <strong class="stat-value text-accent" id="simP50Cost">-</strong>
+            </div>
+            <div class="sim-stat">
+              <span class="stat-label">Tail Risk Cost (P95 VaR)</span>
+              <strong class="stat-value text-warning" id="simP95Cost">-</strong>
+            </div>
+            <div class="sim-stat">
+              <span class="stat-label">Estimasi Defisit Stok (P50)</span>
+              <strong class="stat-value" id="simShortfall">-</strong>
+            </div>
+            <div class="sim-stat">
+              <span class="stat-label">Proyeksi Gross Margin</span>
+              <strong class="stat-value" id="simMargin">-</strong>
+            </div>
+          </div>
+
+          <div id="simCovenantAlert" class="inline-notice danger hidden" style="margin-top: 16px;"></div>
+          <p id="simVulnerableNote" class="helper-text" style="margin-top: 12px;"></p>
+
+          <div class="chart-container">
+            <canvas id="mcHistogramChart"></canvas>
+          </div>
+
+          <div id="mcInterpretationBox" class="chart-interpretation" style="margin-top: 16px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- TAB 4: APPROVALS & AUDIT GOVERNANCE                                     -->
+    <!-- ======================================================================= -->
+    <section id="tab-governance" class="tab-panel">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Governance, Approvals &amp; Audit Ledger</h1>
+          <p class="page-subtitle">
+            Pengelolaan persetujuan eksekutif (Human-in-the-Loop) dan buku besar audit terverifikasi SHA-256.
+          </p>
+        </div>
+      </div>
+
+      <!-- HITL Approval Queue -->
+      <div class="surface-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Antrean Persetujuan Eksekutif (HITL)</h2>
+            <p class="section-desc">
+              Otorisasi persetujuan dibatasi untuk peran <strong>SupplyChainDirector</strong> atau <strong>Admin</strong> sesuai kebijakan <code>SOP-SC-04</code> &amp; <code>GOV-SEC-01</code>.
+            </p>
+          </div>
+          <div class="filter-inline">
+            <label for="hitlStatusFilter" class="sr-only">Filter Status Tiket</label>
+            <select id="hitlStatusFilter">
+              <option value="ALL" selected>Semua Status</option>
+              <option value="PENDING">Pending</option>
+              <option value="APPROVED">Approved</option>
+              <option value="REJECTED">Rejected</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-scroll" style="margin-top: 16px;">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th>Ticket ID</th>
+                <th>Strategi Rekomendasi</th>
+                <th>Estimasi Biaya</th>
+                <th>Proyeksi Margin</th>
+                <th>Status</th>
+                <th>Tindakan</th>
+              </tr>
+            </thead>
+            <tbody id="hitlTicketsBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SHA-256 Audit Ledger -->
+      <div class="surface-card section-gap">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Catatan Audit Aktivitas &amp; Keputusan</h2>
+            <p class="section-desc">
+              Hash kriptografi <strong>SHA-256</strong> digunakan untuk memverifikasi integritas rantai catatan audit agar manipulasi riwayat terdeteksi secara otomatis (bukan jaminan bahwa seluruh infrastruktur bebas dari risiko keamanan).
+            </p>
+          </div>
+          <div class="action-row">
+            <select id="auditStatusFilter" aria-label="Filter Status Audit">
+              <option value="ALL" selected>Semua Aktivitas</option>
+              <option value="COMPLETED">Completed / Success</option>
+              <option value="BLOCKED">Blocked / Denied</option>
+            </select>
+            <span id="ledgerIntegrityBadge" class="tag tag-success">Chain Verified</span>
+          </div>
+        </div>
+
+        <div class="table-scroll" style="margin-top: 16px;">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th>Audit ID</th>
+                <th>Waktu (UTC)</th>
+                <th>Pengguna &amp; Role</th>
+                <th>Aktivitas</th>
+                <th>Status</th>
+                <th>Hash Ringkas</th>
+              </tr>
+            </thead>
+            <tbody id="auditLogsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong style="color: var(--text-primary);">NexusCore AI</strong> — Enterprise Supply Chain Intelligence &amp; Resilience Platform.
+        <span class="footer-sub">AI Engineering Portfolio Project &bull; Simulated Enterprise Dataset (ApexGlobal).</span>
+      </div>
+      <div class="footer-links">
+        <a href="/docs" target="_blank" rel="noopener noreferrer">API Docs</a>
+        <span>&bull;</span>
+        <a href="https://github.com/4gnim/nexuscore-ai" target="_blank" rel="noopener noreferrer">github.com/4gnim/nexuscore-ai</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- HITL CONFIRMATION DIALOG -->
+  <div id="hitlConfirmModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <h3 id="modalTitle">Konfirmasi Keputusan</h3>
+        <button type="button" id="closeModalBtn" class="icon-btn" aria-label="Tutup">&times;</button>
+      </div>
+      <div id="modalSummaryBody" class="modal-content"></div>
+      <div class="field-group" style="margin-top: 16px;">
+        <label for="modalNotesInput">Catatan Otorisasi (Opsional)</label>
+        <input type="text" id="modalNotesInput" placeholder="Tambahkan catatan keputusan eksekutif..." />
+      </div>
+      <div class="modal-actions">
+        <button type="button" id="cancelModalBtn" class="btn btn-secondary">Batal</button>
+        <button type="button" id="confirmModalBtn" class="btn btn-primary">Konfirmasi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIT HASH DETAIL DIALOG -->
+  <div id="hashDetailModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="hashModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <h3 id="hashModalTitle">Detail Catatan Audit SHA-256</h3>
+        <button type="button" id="closeHashModalBtn" class="icon-btn" aria-label="Tutup">&times;</button>
+      </div>
+      <div id="hashModalBody" class="modal-content"></div>
+      <div class="modal-actions">
+        <button type="button" id="okHashModalBtn" class="btn btn-secondary">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

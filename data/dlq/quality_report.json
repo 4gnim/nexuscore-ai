@@ -1,0 +1,23 @@
+{
+  "executed_at": "2026-11-22T15:56:11.688788+00:00",
+  "dataset_name": "shipments_history",
+  "total_input_rows": 615,
+  "valid_rows": 601,
+  "rejected_rows": 14,
+  "pass_rate_pct": 97.72,
+  "error_breakdown": {
+    "ARRIVAL_BEFORE_ORDER_DATE": 1,
+    "DUPLICATE_SHIPMENT_ID": 1,
+    "INVALID_FK_COMPONENT_ID": 1,
+    "INVALID_FK_SUPPLIER_ID": 2,
+    "INVALID_TRANSPORT_MODE": 1,
+    "MALFORMED_DATE": 1,
+    "NEGATIVE_TARIFF_PAID": 1,
+    "OUT_OF_RANGE_DELAY_DAYS": 1,
+    "OUT_OF_RANGE_FREIGHT_COST": 1,
+    "OUT_OF_RANGE_ORDER_QTY": 1,
+    "OUT_OF_RANGE_PORT_CONGESTION": 1,
+    "OUT_OF_RANGE_UNIT_PRICE": 2,
+    "PROMISED_BEFORE_ORDER_DATE": 1
+  }
+}

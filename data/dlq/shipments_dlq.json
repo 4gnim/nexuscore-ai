@@ -1,0 +1,409 @@
+[
+  {
+    "shipment_id": "SHP-ERR-0006",
+    "rejected_at": "2026-11-22T15:56:11.391820+00:00",
+    "error_codes": [
+      "OUT_OF_RANGE_UNIT_PRICE"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0006",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-004",
+      "component_id": "CMP-003",
+      "origin_port": "Port of Hamburg",
+      "destination_hub": "WH-SG",
+      "transport_mode": "AIR_FREIGHT",
+      "order_date": "2025-11-06",
+      "promised_date": "2025-11-14",
+      "actual_arrival_date": "2025-11-15",
+      "order_qty": "1432",
+      "unit_price_usd": "0.0",
+      "freight_cost_usd": "10278.5",
+      "tariff_paid_usd": "6665.67",
+      "port_congestion_index": "44.36",
+      "weather_severity_index": "19.89",
+      "supplier_health_at_order": "63.72",
+      "delay_days": "1",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0013",
+    "rejected_at": "2026-11-22T15:56:11.435729+00:00",
+    "error_codes": [
+      "OUT_OF_RANGE_FREIGHT_COST"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0013",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-005",
+      "component_id": "CMP-002",
+      "origin_port": "Port of Cat Lai",
+      "destination_hub": "WH-DE",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2026-04-23",
+      "promised_date": "2026-05-05",
+      "actual_arrival_date": "2026-05-05",
+      "order_qty": "2282",
+      "unit_price_usd": "197.36",
+      "freight_cost_usd": "-1200.0",
+      "tariff_paid_usd": "33778.16",
+      "port_congestion_index": "27.65",
+      "weather_severity_index": "10.75",
+      "supplier_health_at_order": "83.66",
+      "delay_days": "0",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0004",
+    "rejected_at": "2026-11-22T15:56:11.446878+00:00",
+    "error_codes": [
+      "INVALID_FK_COMPONENT_ID"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0004",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-006",
+      "component_id": "CMP-999",
+      "origin_port": "Port of Tanjung Pelepas",
+      "destination_hub": "WH-DE",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2025-10-15",
+      "promised_date": "2025-10-26",
+      "actual_arrival_date": "2025-10-27",
+      "order_qty": "2164",
+      "unit_price_usd": "19.92",
+      "freight_cost_usd": "3964.76",
+      "tariff_paid_usd": "1077.67",
+      "port_congestion_index": "7.86",
+      "weather_severity_index": "35.2",
+      "supplier_health_at_order": "87.41",
+      "delay_days": "1",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0015",
+    "rejected_at": "2026-11-22T15:56:11.446878+00:00",
+    "error_codes": [
+      "NEGATIVE_TARIFF_PAID"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0015",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-008",
+      "component_id": "CMP-007",
+      "origin_port": "Port of Tanjung Priok",
+      "destination_hub": "WH-SG",
+      "transport_mode": "AIR_FREIGHT",
+      "order_date": "2026-02-21",
+      "promised_date": "2026-02-24",
+      "actual_arrival_date": "2026-02-24",
+      "order_qty": "646",
+      "unit_price_usd": "32.16",
+      "freight_cost_usd": "5184.87",
+      "tariff_paid_usd": "-88.5",
+      "port_congestion_index": "31.01",
+      "weather_severity_index": "20.77",
+      "supplier_health_at_order": "77.67",
+      "delay_days": "0",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0009",
+    "rejected_at": "2026-11-22T15:56:11.464644+00:00",
+    "error_codes": [
+      "OUT_OF_RANGE_DELAY_DAYS"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0009",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-005",
+      "component_id": "CMP-002",
+      "origin_port": "Port of Cat Lai",
+      "destination_hub": "WH-DE",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2025-10-08",
+      "promised_date": "2025-10-20",
+      "actual_arrival_date": "2025-10-21",
+      "order_qty": "1336",
+      "unit_price_usd": "189.94",
+      "freight_cost_usd": "2621.52",
+      "tariff_paid_usd": "19031.99",
+      "port_congestion_index": "13.38",
+      "weather_severity_index": "19.55",
+      "supplier_health_at_order": "71.21",
+      "delay_days": "-7",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0010",
+    "rejected_at": "2026-11-22T15:56:11.464644+00:00",
+    "error_codes": [
+      "INVALID_TRANSPORT_MODE"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0010",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-002",
+      "component_id": "CMP-001",
+      "origin_port": "Port of Busan",
+      "destination_hub": "WH-ID",
+      "transport_mode": "TELEPORTATION",
+      "order_date": "2026-04-11",
+      "promised_date": "2026-04-27",
+      "actual_arrival_date": "2026-04-27",
+      "order_qty": "3431",
+      "unit_price_usd": "162.31",
+      "freight_cost_usd": "5442.49",
+      "tariff_paid_usd": "27844.28",
+      "port_congestion_index": "21.1",
+      "weather_severity_index": "10.17",
+      "supplier_health_at_order": "93.38",
+      "delay_days": "0",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0002",
+    "rejected_at": "2026-11-22T15:56:11.464644+00:00",
+    "error_codes": [
+      "INVALID_FK_SUPPLIER_ID"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0002",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": null,
+      "component_id": "CMP-005",
+      "origin_port": "Port of Kaohsiung",
+      "destination_hub": "WH-ID",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2025-12-08",
+      "promised_date": "2025-12-26",
+      "actual_arrival_date": "2025-12-30",
+      "order_qty": "1404",
+      "unit_price_usd": "42.68",
+      "freight_cost_usd": "2698.16",
+      "tariff_paid_usd": "3595.36",
+      "port_congestion_index": "60.23",
+      "weather_severity_index": "29.84",
+      "supplier_health_at_order": "82.52",
+      "delay_days": "4",
+      "is_delayed": "1",
+      "shipment_status": "DELIVERED_DELAYED"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0001",
+    "rejected_at": "2026-11-22T15:56:11.478366+00:00",
+    "error_codes": [
+      "OUT_OF_RANGE_ORDER_QTY"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0001",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-005",
+      "component_id": "CMP-002",
+      "origin_port": "Port of Cat Lai",
+      "destination_hub": "WH-SG",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2026-06-06",
+      "promised_date": "2026-06-18",
+      "actual_arrival_date": "2026-06-20",
+      "order_qty": "-450",
+      "unit_price_usd": "192.15",
+      "freight_cost_usd": "3604.59",
+      "tariff_paid_usd": "31502.99",
+      "port_congestion_index": "30.56",
+      "weather_severity_index": "60.31",
+      "supplier_health_at_order": "78.42",
+      "delay_days": "2",
+      "is_delayed": "1",
+      "shipment_status": "DELIVERED_DELAYED"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0007",
+    "rejected_at": "2026-11-22T15:56:11.478366+00:00",
+    "error_codes": [
+      "OUT_OF_RANGE_UNIT_PRICE"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0007",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-008",
+      "component_id": "CMP-007",
+      "origin_port": "Port of Tanjung Priok",
+      "destination_hub": "WH-DE",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2026-01-05",
+      "promised_date": "2026-01-12",
+      "actual_arrival_date": "2026-01-12",
+      "order_qty": "1932",
+      "unit_price_usd": "999999.99",
+      "freight_cost_usd": "3458.22",
+      "tariff_paid_usd": "1216.39",
+      "port_congestion_index": "32.37",
+      "weather_severity_index": "10.62",
+      "supplier_health_at_order": "87.13",
+      "delay_days": "0",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0014",
+    "rejected_at": "2026-11-22T15:56:11.494485+00:00",
+    "error_codes": [
+      "MALFORMED_DATE"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0014",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-005",
+      "component_id": "CMP-002",
+      "origin_port": "Port of Cat Lai",
+      "destination_hub": "WH-ID",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2026/99/45",
+      "promised_date": "2026-04-07",
+      "actual_arrival_date": "2026-04-09",
+      "order_qty": "3394",
+      "unit_price_usd": "200.54",
+      "freight_cost_usd": "5264.72",
+      "tariff_paid_usd": "51047.46",
+      "port_congestion_index": "47.11",
+      "weather_severity_index": "17.63",
+      "supplier_health_at_order": "78.64",
+      "delay_days": "2",
+      "is_delayed": "1",
+      "shipment_status": "DELIVERED_DELAYED"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0005",
+    "rejected_at": "2026-11-22T15:56:11.497792+00:00",
+    "error_codes": [
+      "PROMISED_BEFORE_ORDER_DATE",
+      "ARRIVAL_BEFORE_ORDER_DATE"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0005",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-007",
+      "component_id": "CMP-006",
+      "origin_port": "Port of Los Angeles",
+      "destination_hub": "WH-DE",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2026-08-15",
+      "promised_date": "2026-03-12",
+      "actual_arrival_date": "2026-07-01",
+      "order_qty": "1914",
+      "unit_price_usd": "141.61",
+      "freight_cost_usd": "3443.39",
+      "tariff_paid_usd": "12196.87",
+      "port_congestion_index": "5.0",
+      "weather_severity_index": "4.66",
+      "supplier_health_at_order": "85.14",
+      "delay_days": "0",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0008",
+    "rejected_at": "2026-11-22T15:56:11.497792+00:00",
+    "error_codes": [
+      "OUT_OF_RANGE_PORT_CONGESTION"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0008",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-004",
+      "component_id": "CMP-003",
+      "origin_port": "Port of Hamburg",
+      "destination_hub": "WH-DE",
+      "transport_mode": "AIR_FREIGHT",
+      "order_date": "2026-08-27",
+      "promised_date": "2026-09-04",
+      "actual_arrival_date": "2026-09-04",
+      "order_qty": "788",
+      "unit_price_usd": "113.95",
+      "freight_cost_usd": "5765.64",
+      "tariff_paid_usd": "3591.7",
+      "port_congestion_index": "185.5",
+      "weather_severity_index": "0.75",
+      "supplier_health_at_order": "57.74",
+      "delay_days": "0",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-2026-0111",
+    "rejected_at": "2026-11-22T15:56:11.497792+00:00",
+    "error_codes": [
+      "DUPLICATE_SHIPMENT_ID"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-2026-0111",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-007",
+      "component_id": "CMP-006",
+      "origin_port": "Port of Los Angeles",
+      "destination_hub": "WH-DE",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2025-11-16",
+      "promised_date": "2025-12-07",
+      "actual_arrival_date": "2025-12-07",
+      "order_qty": "3493",
+      "unit_price_usd": "143.71",
+      "freight_cost_usd": "5101.79",
+      "tariff_paid_usd": "22589.06",
+      "port_congestion_index": "5.0",
+      "weather_severity_index": "13.67",
+      "supplier_health_at_order": "89.21",
+      "delay_days": "0",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  },
+  {
+    "shipment_id": "SHP-ERR-0003",
+    "rejected_at": "2026-11-22T15:56:11.527972+00:00",
+    "error_codes": [
+      "INVALID_FK_SUPPLIER_ID"
+    ],
+    "raw_payload": {
+      "shipment_id": "SHP-ERR-0003",
+      "tenant_id": "TENANT-APEX-GLOBAL",
+      "supplier_id": "SUP-999",
+      "component_id": "CMP-007",
+      "origin_port": "Port of Tanjung Priok",
+      "destination_hub": "WH-ID",
+      "transport_mode": "SEA_FREIGHT",
+      "order_date": "2026-01-07",
+      "promised_date": "2026-01-14",
+      "actual_arrival_date": "2026-01-15",
+      "order_qty": "2771",
+      "unit_price_usd": "32.49",
+      "freight_cost_usd": "4372.08",
+      "tariff_paid_usd": "1800.6",
+      "port_congestion_index": "5.0",
+      "weather_severity_index": "24.88",
+      "supplier_health_at_order": "87.74",
+      "delay_days": "1",
+      "is_delayed": "0",
+      "shipment_status": "DELIVERED_ON_TIME"
+    }
+  }
+]
