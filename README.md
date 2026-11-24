@@ -1,13 +1,3 @@
----
-title: NexusCore AI
-emoji: 🛡️
-colorFrom: blue
-colorTo: slate
-sdk: gradio
-app_file: run_hf.py
-pinned: false
----
-
 # NexusCore AI — Enterprise Supply Chain Intelligence & Resilience Platform
 
 **NexusCore AI** is an end-to-end enterprise supply chain risk intelligence and decision-orchestration platform that integrates **Medallion Data Engineering**, **Hybrid GraphRAG (NetworkX + Qdrant Cloud)**, **Predictive Machine Learning (XGBoost + MLflow)**, **1,000-Iteration Monte Carlo Risk Simulation**, **Parallel Multi-Agent Orchestration (LangGraph)**, and **Human-in-the-Loop (HITL) Governance** backed by a **SHA-256 hash-chained audit ledger**.
