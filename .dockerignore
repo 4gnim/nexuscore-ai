@@ -28,3 +28,6 @@ models_registry/mlartifacts/
 *.log
 .DS_Store
 Thumbs.db
+
+models_registry/*.joblib
+models_registry/*.pkl
