@@ -14,9 +14,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Create non-root user (UID 1000 required by Hugging Face Spaces)
+# Create /app directory and non-root user (UID 1000 required by Hugging Face Spaces)
 RUN useradd -m -u 1000 user && \
-    mkdir -p /home/user/.cache/huggingface /home/user/.cache/fastembed && \
+    mkdir -p /app /home/user/.cache/huggingface /home/user/.cache/fastembed && \
     chown -R user:user /app /home/user
 
 WORKDIR /app
@@ -34,7 +34,7 @@ RUN python -c "from fastembed import TextEmbedding, SparseTextEmbedding; \
 
 COPY --chown=user:user . .
 
-# Train & register XGBoost models inside the image so binary .joblib files are not needed in Git
+# Train & register XGBoost models inside the image
 RUN python -m app.ml.train_models
 
 EXPOSE 7860
