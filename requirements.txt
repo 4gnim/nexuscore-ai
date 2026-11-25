@@ -42,3 +42,4 @@ langchain-groq>=0.2.3
 langfuse>=2.57.10
 httpx>=0.28.1
 pytest>=8.3.4
+fastmcp>=2.0.0
