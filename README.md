@@ -1,10 +1,18 @@
+---
+title: NexusCore AI
+emoji: 🛡️
+colorFrom: blue
+colorTo: slate
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # NexusCore AI — Enterprise Supply Chain Intelligence & Resilience Platform
 
 **NexusCore AI** is an end-to-end enterprise supply chain risk intelligence and decision-orchestration platform that integrates **Medallion Data Engineering**, **Hybrid GraphRAG (NetworkX + Qdrant Cloud)**, **Predictive Machine Learning (XGBoost + MLflow)**, **1,000-Iteration Monte Carlo Risk Simulation**, **Parallel Multi-Agent Orchestration (LangGraph)**, and **Human-in-the-Loop (HITL) Governance** backed by a **SHA-256 hash-chained audit ledger**.
 
 Instead of relying on an LLM to guess operational metrics or approve high-risk financial actions autonomously, NexusCore AI separates deterministic quantitative computation from generative reasoning—tracing multi-hop supplier dependencies, forecasting warehouse stockouts, verifying debt covenant compliance (`COV-FIN-01`), and streaming audited executive briefs in real time.
-
----
 
 ## Key Capabilities & System Architecture
 
@@ -64,8 +72,6 @@ Instead of relying on an LLM to guess operational metrics or approve high-risk f
    - **Executive View:** Operational risk alerts, live KPI cards, structured _Executive Decision Briefs_ with progressive disclosure accordions, and data-driven **Chart.js** visual insights.
    - **Engineering View:** Real-time LangGraph stage telemetry, per-worker latency, NetworkX multi-hop reasoning paths, RRF retrieval scores, and XGBoost risk tables.
    - **Supply Chain Graph Explorer & What-If Simulator:** Interactive **Cytoscape.js** dependency explorer with on-demand edge labels and 1-hop neighborhood highlighting, paired with a custom Monte Carlo parameter simulator.
-
----
 
 ## Project Structure
 
@@ -130,13 +136,10 @@ nexuscore-ai/
 │   └── test_nexuscore_e2e.py     # End-to-end Pytest evaluation & regression suite
 ├── .dockerignore
 ├── .env.example
-├── Dockerfile                    # Standalone container build for self-hosted deployment
+├── Dockerfile                    # Hugging Face Spaces (port 7860, UID 1000) & container build
 ├── README.md
-├── requirements.txt
-└── run_hf.py                     # Gradio SDK + FastAPI ASGI bridge for Hugging Face Spaces
+└── requirements.txt
 ```
-
----
 
 ## API Endpoints
 
@@ -150,21 +153,17 @@ nexuscore-ai/
 | `POST` | `/api/simulate`                         | Runs a custom 1,000-iteration Monte Carlo simulation and evaluates `COV-FIN-01` gross margin resilience.                                     |
 | `POST` | `/api/hitl/tickets/{ticket_id}/resolve` | Enforces RBAC (`SupplyChainDirector` / `Admin`) to approve or reject pending high-value mitigation tickets.                                  |
 
----
-
 ## Automated Testing & Regression Suite (`pytest -v`)
 
 All **5/5 automated end-to-end tests** in `tests/test_nexuscore_e2e.py` pass:
 
-| Test Case                                        | Verification Scope                                                                                                                                               |  Status  |
-| :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: |
+| Test Case                                        | Verification Scope                                                                                                                                               | Status   |
+| :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | `test_01_frontend_static_assets_served`          | Verifies `/`, `/static/styles.css`, and `/static/app.js` return `HTTP 200`.                                                                                      | `PASSED` |
 | `test_02_overview_and_tenant_isolation`          | Verifies KPIs, `WH-ID` risk marts, valid SHA-256 chain, and `HTTP 403` rejection on unauthorized tenants.                                                        | `PASSED` |
 | `test_03_monte_carlo_what_if_simulator`          | Validates 1,000-iteration Monte Carlo P50/P95 percentiles, histogram bins, and `COV-FIN-01` margin analysis.                                                     | `PASSED` |
 | `test_04_prompt_injection_guardrail_and_audit`   | Confirms prompt/SQL injection attempts are blocked (`HTTP 400/403`) while preserving audit chain integrity.                                                      | `PASSED` |
 | `test_05_multi_agent_sse_and_hitl_rbac_workflow` | Tests full LangGraph SSE streaming, strategy optimization, `Analyst` (`403`) vs. `SupplyChainDirector` (`200`) RBAC enforcement, and final SHA-256 verification. | `PASSED` |
-
----
 
 ## Local Setup & Quickstart
 
@@ -183,7 +182,7 @@ Copy `.env.example` to `.env` and fill in your credentials (local deterministic 
 ```env
 APP_NAME="NexusCore AI"
 APP_ENV=development
-DEFAULT_TENANT_ID=tenant-global-mfg
+DEFAULT_TENANT_ID=TENANT-APEX-GLOBAL
 
 GEMINI_API_KEY=your_gemini_api_key_here
 GROQ_API_KEY=your_groq_api_key_here
@@ -210,33 +209,18 @@ RATE_LIMIT_PER_MINUTE=25
 
 ```bash
 pytest -v
-uvicorn app.main:app --reload --port 8000
+uvicorn app.main:app --reload --port 7860
 ```
 
-Open **`http://127.0.0.1:8000`** in your browser to access the dashboard or **`http://127.0.0.1:8000/docs`** for the OpenAPI specification.
+Open **`http://127.0.0.1:7860`** in your browser to access the dashboard or **`http://127.0.0.1:7860/docs`** for the OpenAPI specification.
 
----
+## Hugging Face Spaces Deployment (`sdk: docker`)
 
-## Deployment Options
+This repository is configured to run directly on **Hugging Face Spaces** using the **Docker SDK** (`sdk: docker`, `app_port: 7860`) with a non-root runtime user (`UID 1000`) and pre-cached FastEmbed ONNX models:
 
-### Hugging Face Spaces (`Gradio SDK`)
-
-This repository is configured for **Hugging Face Spaces** using the Gradio SDK (`sdk: gradio`, `app_file: run_hf.py`). `run_hf.py` disables Gradio's Node SSR proxy (`GRADIO_SSR_MODE=false`) and mounts the FastAPI application, SSE streaming endpoints, `/docs`, and static frontend directly onto the ASGI server.
-
-1. Create a new Space on Hugging Face with **SDK: Gradio** and **CPU basic** hardware.
-2. Push this repository to the Space remote (`git push space main`).
-3. Add your `.env` keys (`GEMINI_API_KEY`, `GROQ_API_KEY`, `SUPABASE_DB_URL`, `QDRANT_URL`, `QDRANT_API_KEY`, etc.) under **Settings → Variables and secrets**.
-
-### Standalone Docker Container (Self-Hosted / Cloud)
-
-For containerized deployments outside Hugging Face Spaces, the repository includes a `Dockerfile` and `.dockerignore` configured with OpenMP (`libgomp1`) for XGBoost and a non-root runtime user (`UID 1000`):
-
-```bash
-docker build -t nexuscore-ai .
-docker run -p 7860:7860 --env-file .env nexuscore-ai
-```
-
----
+1. Open your Space **Settings** on Hugging Face and set **Space hardware** to `CPU basic (2 vCPU · 16 GB RAM · Free)`.
+2. Add your `.env` credentials (`GEMINI_API_KEY`, `GROQ_API_KEY`, `SUPABASE_DB_URL`, `QDRANT_URL`, `QDRANT_API_KEY`, etc.) under **Variables and secrets**.
+3. Push this repository to the Space remote (`git push --force hf main`) to trigger the container build and launch the FastAPI server on port `7860`.
 
 ## Limitations & Scope
 
