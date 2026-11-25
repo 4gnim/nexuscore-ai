@@ -1,6 +1,6 @@
-﻿---
+---
 title: NexusCore AI
-emoji: ðŸ›¡ï¸
+emoji: 🛡️
 colorFrom: blue
 colorTo: gray
 sdk: docker
@@ -8,52 +8,52 @@ app_port: 7860
 pinned: false
 ---
 
-# NexusCore AI â€” Enterprise Supply Chain Intelligence & Resilience Platform
+# NexusCore AI — Enterprise Supply Chain Intelligence & Resilience Platform
 
 **NexusCore AI** is an end-to-end enterprise supply chain risk intelligence and decision-orchestration platform that integrates **Medallion Data Engineering**, **Hybrid GraphRAG (NetworkX + Qdrant Cloud)**, **Predictive Machine Learning (XGBoost + MLflow)**, **1,000-Iteration Monte Carlo Risk Simulation**, **Parallel Multi-Agent Orchestration (LangGraph)**, and **Human-in-the-Loop (HITL) Governance** backed by a **SHA-256 hash-chained audit ledger**.
 
-Instead of relying on an LLM to guess operational metrics or approve high-risk financial actions autonomously, NexusCore AI separates deterministic quantitative computation from generative reasoningâ€”tracing multi-hop supplier dependencies, forecasting warehouse stockouts, verifying debt covenant compliance (`COV-FIN-01`), and streaming audited executive briefs in real time.
+Instead of relying on an LLM to guess operational metrics or approve high-risk financial actions autonomously, NexusCore AI separates deterministic quantitative computation from generative reasoning—tracing multi-hop supplier dependencies, forecasting warehouse stockouts, verifying debt covenant compliance (`COV-FIN-01`), and streaming audited executive briefs in real time.
 
 ## Key Capabilities & System Architecture
 
 ```text
 [Raw Enterprise CSVs & Corporate Policy JSON]
-                     â”‚
-                     â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ 1. Medallion Data Engineering & Quality Gate (app/data_eng)                              â”‚
-â”‚    â€¢ Schema validation + Dead-Letter Queue (data/dlq/shipments_dlq.json)                 â”‚
-â”‚    â€¢ Cleaned & Curated Parquet Marts (data/curated/inventory_risk_mart.parquet)          â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â”‚
-         â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-         â–¼                       â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ 2. Predictive ML    â”‚ â”‚ 3. Hybrid GraphRAG Engine (app/kg & app/rag)                     â”‚
-â”‚    (app/ml)         â”‚ â”‚    â€¢ NetworkX directed KG + PageRank bottleneck centrality       â”‚
-â”‚    â€¢ XGBoost delay  â”‚ â”‚    â€¢ Qdrant Cloud Dense + BM25 Reciprocal Rank Fusion (RRF)      â”‚
-â”‚      & stockout     â”‚ â”‚      across SOPs, tariff rules & debt covenants                  â”‚
-â”‚    â€¢ MLflow registryâ”‚ â”‚    â€¢ Tenant-isolated semantic query cache (NexusCore-Cache)      â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-         â”‚                       â”‚
-         â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ 4. Parallel Multi-Agent Swarm (LangGraph Send API + SSE Streaming)                       â”‚
-â”‚    â€¢ Meta-Planner Agent â”€â”€â–¶ Dispatches 3 specialist workers in parallel:                 â”‚
-â”‚      [Graph Investigator]   [ML & SQL Data Scientist]   [Risk & Compliance Auditor]      â”‚
-â”‚    â€¢ Adversarial Red-Team Critic â”€â”€â–¶ Audits numerical & policy consistency               â”‚
-â”‚    â€¢ Executive Synthesizer â”€â”€â–¶ Decision brief, Cytoscape subgraph & Chart.js insights    â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â”‚
-                     â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ 5. Governance, RBAC & HITL Control Layer (app/security & app/sim)                        â”‚
-â”‚    â€¢ Prompt/SQL injection guardrails & tenant scope isolation (GOV-SEC-01)               â”‚
-â”‚    â€¢ 1,000-iteration Monte Carlo cost & COV-FIN-01 (28.0% margin floor) simulator        â”‚
-â”‚    â€¢ Auto-escalation (> USD 50,000) to SupplyChainDirector HITL approval queue           â”‚
-â”‚    â€¢ Tamper-evident SHA-256 hash-chained audit ledger (Supabase PostgreSQL / SQLite)     â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                     │
+                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────┐
+│ 1. Medallion Data Engineering & Quality Gate (app/data_eng)                              │
+│    • Schema validation + Dead-Letter Queue (data/dlq/shipments_dlq.json)                 │
+│    • Cleaned & Curated Parquet Marts (data/curated/inventory_risk_mart.parquet)          │
+└──────────────────────────────────────────────────────────────────────────────────────────┘
+                     │
+         ┌───────────┴───────────┐
+         ▼                       ▼
+┌─────────────────────┐ ┌──────────────────────────────────────────────────────────────────┐
+│ 2. Predictive ML    │ │ 3. Hybrid GraphRAG Engine (app/kg & app/rag)                     │
+│    (app/ml)         │ │    • NetworkX directed KG + PageRank bottleneck centrality       │
+│    • XGBoost delay  │ │    • Qdrant Cloud Dense + BM25 Reciprocal Rank Fusion (RRF)      │
+│      & stockout     │ │      across SOPs, tariff rules & debt covenants                  │
+│    • MLflow registry│ │    • Tenant-isolated semantic query cache (NexusCore-Cache)      │
+└─────────────────────┘ └──────────────────────────────────────────────────────────────────┘
+         │                       │
+         └───────────┬───────────┘
+                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────┐
+│ 4. Parallel Multi-Agent Swarm (LangGraph Send API + SSE Streaming)                       │
+│    • Meta-Planner Agent ──▶ Dispatches 3 specialist workers in parallel:                 │
+│      [Graph Investigator]   [ML & SQL Data Scientist]   [Risk & Compliance Auditor]      │
+│    • Adversarial Red-Team Critic ──▶ Audits numerical & policy consistency               │
+│    • Executive Synthesizer ──▶ Decision brief, Cytoscape subgraph & Chart.js insights    │
+└──────────────────────────────────────────────────────────────────────────────────────────┘
+                     │
+                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────┐
+│ 5. Governance, RBAC & HITL Control Layer (app/security & app/sim)                        │
+│    • Prompt/SQL injection guardrails & tenant scope isolation (GOV-SEC-01)               │
+│    • 1,000-iteration Monte Carlo cost & COV-FIN-01 (28.0% margin floor) simulator        │
+│    • Auto-escalation (> USD 50,000) to SupplyChainDirector HITL approval queue           │
+│    • Tamper-evident SHA-256 hash-chained audit ledger (Supabase PostgreSQL / SQLite)     │
+└──────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Core Engineering Layers
@@ -77,68 +77,68 @@ Instead of relying on an LLM to guess operational metrics or approve high-risk f
 
 ```text
 nexuscore-ai/
-â”œâ”€â”€ app/
-â”‚   â”œâ”€â”€ agents/
-â”‚   â”‚   â”œâ”€â”€ state.py              # TypedDict state schema for LangGraph parallel swarm
-â”‚   â”‚   â””â”€â”€ swarm.py              # 6-node LangGraph Send-API workflow & SSE trace emitter
-â”‚   â”œâ”€â”€ api/
-â”‚   â”‚   â”œâ”€â”€ routes.py             # FastAPI endpoints, SSE streaming, simulation & HITL routes
-â”‚   â”‚   â””â”€â”€ schemas.py            # Strict Pydantic request/response contracts
-â”‚   â”œâ”€â”€ core/
-â”‚   â”‚   â”œâ”€â”€ bootstrap_infra.py    # Startup initialization & infrastructure bootstrap
-â”‚   â”‚   â”œâ”€â”€ config.py             # Pydantic settings & environment configuration
-â”‚   â”‚   â”œâ”€â”€ database.py           # SQLAlchemy engine & Supabase PostgreSQL / SQLite session
-â”‚   â”‚   â”œâ”€â”€ llm_router.py         # Multi-provider LLM router (Gemini + Groq) & Langfuse tracing
-â”‚   â”‚   â”œâ”€â”€ semantic_cache.py     # Qdrant-backed tenant-isolated semantic query cache
-â”‚   â”‚   â””â”€â”€ vector_store.py       # Qdrant Cloud hybrid Dense + Sparse vector client
-â”‚   â”œâ”€â”€ data_eng/
-â”‚   â”‚   â”œâ”€â”€ etl_pipeline.py       # Medallion ETL pipeline (raw CSV -> cleaned -> curated Parquet)
-â”‚   â”‚   â”œâ”€â”€ quality_gate.py       # Schema validation & Dead-Letter Queue (DLQ) quarantine
-â”‚   â”‚   â””â”€â”€ stream_simulator.py   # Logistics telemetry & port congestion event simulator
-â”‚   â”œâ”€â”€ kg/
-â”‚   â”‚   â”œâ”€â”€ entity_resolver.py    # Canonical entity resolution across structured & text sources
-â”‚   â”‚   â””â”€â”€ extractor.py          # Knowledge Graph triple extraction & snapshot builder
-â”‚   â”œâ”€â”€ mcp/
-â”‚   â”‚   â””â”€â”€ server.py             # Model Context Protocol (MCP) server for enterprise tools
-â”‚   â”œâ”€â”€ ml/
-â”‚   â”‚   â”œâ”€â”€ features.py           # Supply chain & lead-time feature engineering
-â”‚   â”‚   â”œâ”€â”€ predictor.py          # XGBoost delay & stockout inference engine
-â”‚   â”‚   â””â”€â”€ train_models.py       # Model training & MLflow artifact registration
-â”‚   â”œâ”€â”€ rag/
-â”‚   â”‚   â”œâ”€â”€ graph_engine.py       # NetworkX multi-hop traversal & PageRank centrality engine
-â”‚   â”‚   â”œâ”€â”€ hybrid_graphrag.py    # Reciprocal Rank Fusion (Dense + BM25 + Graph context)
-â”‚   â”‚   â””â”€â”€ indexer.py            # Enterprise SOP/contract chunking & Qdrant indexing
-â”‚   â”œâ”€â”€ security/
-â”‚   â”‚   â”œâ”€â”€ audit_hitl.py         # SHA-256 hash-chained audit ledger & HITL ticket manager
-â”‚   â”‚   â”œâ”€â”€ guardrails.py         # Prompt/SQL injection detection & tenant/RBAC enforcement
-â”‚   â”‚   â””â”€â”€ secured_runner.py     # Policy-wrapped execution runner
-â”‚   â”œâ”€â”€ sim/
-â”‚   â”‚   â”œâ”€â”€ monte_carlo.py        # 1,000-iteration stochastic cost & COV-FIN-01 simulator
-â”‚   â”‚   â””â”€â”€ optimizer.py          # Multi-strategy mitigation utility optimizer
-â”‚   â””â”€â”€ main.py                   # FastAPI entrypoint, lifespan setup & static frontend mount
-â”œâ”€â”€ data/
-â”‚   â”œâ”€â”€ cleaned/                  # Validated Parquet tables (bom, components, inventory, etc.)
-â”‚   â”œâ”€â”€ curated/                  # Curated marts (inventory_risk_mart.parquet, kg_snapshot.json)
-â”‚   â”œâ”€â”€ dlq/                      # Data quality reports & quarantined shipment records
-â”‚   â”œâ”€â”€ documents/                # Enterprise policies, covenants & contracts (corp_docs.json)
-â”‚   â”œâ”€â”€ raw/                      # Synthetic enterprise CSV source tables
-â”‚   â”œâ”€â”€ generate_enterprise_data.py
-â”‚   â””â”€â”€ golden_dataset.json
-â”œâ”€â”€ docs/
-â”‚   â””â”€â”€ ARCHITECTURE.md           # Detailed system architecture specification
-â”œâ”€â”€ frontend/
-â”‚   â”œâ”€â”€ app.js                    # SSE client, Cytoscape.js explorer, Chart.js dynamic insights
-â”‚   â”œâ”€â”€ index.html                # Dual-persona Light-First Enterprise SaaS UI
-â”‚   â””â”€â”€ styles.css                # Minimalist design system tokens & responsive layout
-â”œâ”€â”€ models_registry/              # Trained Joblib artifacts & SQLite MLflow tracking store
-â”œâ”€â”€ tests/
-â”‚   â”œâ”€â”€ __init__.py
-â”‚   â””â”€â”€ test_nexuscore_e2e.py     # End-to-end Pytest evaluation & regression suite
-â”œâ”€â”€ .dockerignore
-â”œâ”€â”€ .env.example
-â”œâ”€â”€ Dockerfile                    # Hugging Face Spaces (port 7860, UID 1000) & container build
-â”œâ”€â”€ README.md
-â””â”€â”€ requirements.txt
+├── app/
+│   ├── agents/
+│   │   ├── state.py              # TypedDict state schema for LangGraph parallel swarm
+│   │   └── swarm.py              # 6-node LangGraph Send-API workflow & SSE trace emitter
+│   ├── api/
+│   │   ├── routes.py             # FastAPI endpoints, SSE streaming, simulation & HITL routes
+│   │   └── schemas.py            # Strict Pydantic request/response contracts
+│   ├── core/
+│   │   ├── bootstrap_infra.py    # Startup initialization & infrastructure bootstrap
+│   │   ├── config.py             # Pydantic settings & environment configuration
+│   │   ├── database.py           # SQLAlchemy engine & Supabase PostgreSQL / SQLite session
+│   │   ├── llm_router.py         # Multi-provider LLM router (Gemini + Groq) & Langfuse tracing
+│   │   ├── semantic_cache.py     # Qdrant-backed tenant-isolated semantic query cache
+│   │   └── vector_store.py       # Qdrant Cloud hybrid Dense + Sparse vector client
+│   ├── data_eng/
+│   │   ├── etl_pipeline.py       # Medallion ETL pipeline (raw CSV -> cleaned -> curated Parquet)
+│   │   ├── quality_gate.py       # Schema validation & Dead-Letter Queue (DLQ) quarantine
+│   │   └── stream_simulator.py   # Logistics telemetry & port congestion event simulator
+│   ├── kg/
+│   │   ├── entity_resolver.py    # Canonical entity resolution across structured & text sources
+│   │   └── extractor.py          # Knowledge Graph triple extraction & snapshot builder
+│   ├── mcp/
+│   │   └── server.py             # Model Context Protocol (MCP) server for enterprise tools
+│   ├── ml/
+│   │   ├── features.py           # Supply chain & lead-time feature engineering
+│   │   ├── predictor.py          # XGBoost delay & stockout inference engine
+│   │   └── train_models.py       # Model training & MLflow artifact registration
+│   ├── rag/
+│   │   ├── graph_engine.py       # NetworkX multi-hop traversal & PageRank centrality engine
+│   │   ├── hybrid_graphrag.py    # Reciprocal Rank Fusion (Dense + BM25 + Graph context)
+│   │   └── indexer.py            # Enterprise SOP/contract chunking & Qdrant indexing
+│   ├── security/
+│   │   ├── audit_hitl.py         # SHA-256 hash-chained audit ledger & HITL ticket manager
+│   │   ├── guardrails.py         # Prompt/SQL injection detection & tenant/RBAC enforcement
+│   │   └── secured_runner.py     # Policy-wrapped execution runner
+│   ├── sim/
+│   │   ├── monte_carlo.py        # 1,000-iteration stochastic cost & COV-FIN-01 simulator
+│   │   └── optimizer.py          # Multi-strategy mitigation utility optimizer
+│   └── main.py                   # FastAPI entrypoint, lifespan setup & static frontend mount
+├── data/
+│   ├── cleaned/                  # Validated Parquet tables (bom, components, inventory, etc.)
+│   ├── curated/                  # Curated marts (inventory_risk_mart.parquet, kg_snapshot.json)
+│   ├── dlq/                      # Data quality reports & quarantined shipment records
+│   ├── documents/                # Enterprise policies, covenants & contracts (corp_docs.json)
+│   ├── raw/                      # Synthetic enterprise CSV source tables
+│   ├── generate_enterprise_data.py
+│   └── golden_dataset.json
+├── docs/
+│   └── ARCHITECTURE.md           # Detailed system architecture specification
+├── frontend/
+│   ├── app.js                    # SSE client, Cytoscape.js explorer, Chart.js dynamic insights
+│   ├── index.html                # Dual-persona Light-First Enterprise SaaS UI
+│   └── styles.css                # Minimalist design system tokens & responsive layout
+├── models_registry/              # Trained Joblib artifacts & SQLite MLflow tracking store
+├── tests/
+│   ├── __init__.py
+│   └── test_nexuscore_e2e.py     # End-to-end Pytest evaluation & regression suite
+├── .dockerignore
+├── .env.example
+├── Dockerfile                    # Hugging Face Spaces (port 7860, UID 1000) & container build
+├── README.md
+└── requirements.txt
 ```
 
 ## API Endpoints
@@ -218,7 +218,7 @@ Open **`http://127.0.0.1:7860`** in your browser to access the dashboard or **`h
 
 This repository is configured to run directly on **Hugging Face Spaces** using the **Docker SDK** (`sdk: docker`, `app_port: 7860`) with a non-root runtime user (`UID 1000`) and pre-cached FastEmbed ONNX models:
 
-1. Open your Space **Settings** on Hugging Face and set **Space hardware** to `CPU basic (2 vCPU Â· 16 GB RAM Â· Free)`.
+1. Open your Space **Settings** on Hugging Face and set **Space hardware** to `CPU basic (2 vCPU · 16 GB RAM · Free)`.
 2. Add your `.env` credentials (`GEMINI_API_KEY`, `GROQ_API_KEY`, `SUPABASE_DB_URL`, `QDRANT_URL`, `QDRANT_API_KEY`, etc.) under **Variables and secrets**.
 3. Push this repository to the Space remote (`git push --force hf main`) to trigger the container build and launch the FastAPI server on port `7860`.
 
